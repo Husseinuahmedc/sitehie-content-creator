@@ -1,0 +1,31 @@
+{
+  "name": "@sitehie/render-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright-backed RenderAdapter for sitehie carousel. Depends only on core/domain types and resolved styles.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node run-tests.mjs"
+  },
+  "dependencies": {
+    "@sitehie/core": "*",
+    "archiver": "^8.0.0",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.62.1",
+    "prismjs": "^1.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/prismjs": "^1.26.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outro Slide</title>
+    <link rel="stylesheet" href="shared/base.css" />
+    <style id="theme-fonts"></style>
+    <style id="theme-vars"></style>
+    <style>
+      .outro-image-wrap {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        max-width: 280px;
+        border-radius: 50%;
+        border: 3px solid var(--color-icon-frame);
+        overflow: hidden;
+        background: var(--color-surface);
+        box-shadow: var(--effect-icon-shadow, none);
+        margin: 0 auto;
+      }
+
+      .outro-image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .outro-image-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(
+          circle at 50% 30%,
+          color-mix(in srgb, var(--color-primary) 18%, transparent),
+          transparent 70%
+        );
+        color: var(--color-text-secondary);
+        font-family: var(--type-outro-question-font-family);
+        font-size: 64px;
+      }
+
+      .outro-question {
+        font-family: var(--type-outro-question-font-family);
+        font-size: var(--type-outro-question-font-size);
+        font-weight: var(--type-outro-question-font-weight);
+        line-height: var(--type-outro-question-line-height);
+        color: var(--color-text-primary);
+        text-align: var(--layout-outro-question-align);
+        direction: var(--layout-outro-question-direction);
+        width: 100%;
+      }
+
+      .outro-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--layout-outro-brand-gap, 14px);
+        width: 100%;
+      }
+
+      .outro-handle {
+        font-family: var(--type-outro-handle-font-family);
+        font-size: var(--type-outro-handle-font-size);
+        font-weight: var(--type-outro-handle-font-weight);
+        letter-spacing: var(--type-outro-handle-letter-spacing, normal);
+        color: var(--color-text-secondary);
+        direction: ltr;
+        unicode-bidi: isolate;
+      }
+
+      .outro-follow-cta {
+        font-family: var(--type-outro-cta-font-family);
+        font-size: var(--type-outro-cta-font-size);
+        font-weight: var(--type-outro-cta-font-weight);
+        color: var(--color-badge-text);
+        background: var(--color-badge-background);
+        border-radius: var(--layout-outro-cta-radius, 999px);
+        padding: var(--layout-outro-cta-padding, 14px 32px);
+        box-shadow: var(--effect-outro-cta-shadow, none);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" id="slide">
+      <div
+        class="pos outro-image-wrap"
+        id="outro-image-wrap"
+        data-pos="outroSlide.imagePosition"
+      >
+        <img id="outro-image" alt="" class="hidden" />
+        <div class="outro-image-placeholder" id="outro-image-placeholder">
+          🖼
+        </div>
+      </div>
+
+      <div
+        class="pos fit-text outro-question"
+        id="outro-question"
+        data-fit="outroSlideQuestion"
+        data-pos="outroSlide.questionPosition"
+      ></div>
+
+      <div
+        class="pos tech-badges hidden"
+        id="outro-tech-badges"
+        data-tech-icons
+        data-pos="outroSlide.badgesPosition"
+      ></div>
+
+      <div
+        class="pos outro-brand"
+        id="outro-brand"
+        data-pos="outroSlide.brandPosition"
+      >
+        <span class="outro-handle" id="outro-handle" dir="ltr"></span>
+        <span class="outro-follow-cta" id="outro-follow-cta"></span>
+      </div>
+      <div id="slide-images" class="hidden"></div>
+      <div class="safe-guide" aria-hidden="true">
+        <div class="safe-guide-band top"></div>
+        <div class="safe-guide-band bottom"></div>
+        <div class="safe-guide-side left"></div>
+        <div class="safe-guide-side right"></div>
+      </div>
+    </div>
+    <script type="application/json" id="slide-data"></script>
+    <script id="tech-icons-data"></script>
+    <script src="shared/slide-runtime.js"></script>
+  </body>
+</html>

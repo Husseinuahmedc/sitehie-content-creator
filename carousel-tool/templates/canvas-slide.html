@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canvas Slide</title>
+  <link rel="stylesheet" href="shared/base.css" />
+  <style id="theme-fonts"></style>
+  <style id="theme-vars"></style>
+  <style>
+    #slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #canvas-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide" id="slide">
+    <svg id="canvas-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="safe-guide" aria-hidden="true">
+      <div class="safe-guide-band top"></div>
+      <div class="safe-guide-band bottom"></div>
+      <div class="safe-guide-side left"></div>
+      <div class="safe-guide-side right"></div>
+    </div>
+  </div>
+  <script type="application/json" id="slide-data"></script>
+  <script id="tech-icons-data"></script>
+  <script src="shared/slide-runtime.js"></script>
+</body>
+</html>

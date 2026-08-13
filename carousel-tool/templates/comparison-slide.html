@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparison Slide</title>
+  <link rel="stylesheet" href="shared/base.css" />
+  <style id="theme-fonts"></style>
+  <style id="theme-vars"></style>
+  <style>
+    .slide-number {
+      font-family: var(--type-code-number-font-family);
+      font-size: var(--type-code-number-font-size);
+      font-weight: var(--type-code-number-font-weight);
+      background: var(--color-badge-background);
+      color: var(--color-badge-text);
+      border-radius: var(--layout-code-number-radius);
+      padding: var(--layout-code-number-padding);
+      line-height: 1;
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    .comparison-title {
+      font-family: var(--type-comparison-title-font-family);
+      font-size: var(--type-comparison-title-font-size);
+      font-weight: var(--type-comparison-title-font-weight);
+      line-height: var(--type-comparison-title-line-height, 1.35);
+      color: var(--color-text-primary);
+      text-align: var(--layout-comparison-title-align);
+      direction: var(--layout-comparison-title-direction);
+      width: 100%;
+    }
+
+    .panels {
+      display: flex;
+      gap: var(--layout-comparison-gap, 24px);
+      width: 100%;
+      height: 100%;
+    }
+
+    .panel {
+      flex: 1 1 0;
+      min-width: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--layout-comparison-panel-radius, 24px);
+      padding: var(--layout-comparison-panel-padding, 32px);
+      box-shadow: var(--effect-code-block-shadow, none);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .panel.side-b {
+      border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+    }
+
+    .panel-label {
+      font-family: var(--type-comparison-label-font-family);
+      font-size: var(--type-comparison-label-font-size);
+      font-weight: var(--type-comparison-label-font-weight);
+      letter-spacing: var(--type-comparison-label-letter-spacing, normal);
+      text-transform: var(--type-comparison-label-text-transform, none);
+      color: var(--color-primary);
+      text-align: center;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+      width: 100%;
+    }
+
+    .panel-points {
+      font-family: var(--type-comparison-body-font-family);
+      font-size: var(--type-comparison-body-font-size);
+      font-weight: var(--type-comparison-body-font-weight);
+      line-height: var(--type-comparison-body-line-height, 1.6);
+      color: var(--color-text-primary);
+      list-style: none;
+      width: 100%;
+      flex: 1;
+    }
+
+    .panel-points li {
+      position: relative;
+      padding-inline-start: 1.3em;
+      margin-bottom: 0.55em;
+    }
+
+    .panel-points li::before {
+      content: "◆";
+      position: absolute;
+      inset-inline-start: 0;
+      color: var(--color-primary);
+      font-size: 0.7em;
+      top: 0.35em;
+    }
+
+    .panel.side-b .panel-points li::before {
+      color: var(--color-secondary);
+    }
+
+    .comparison-verdict {
+      font-family: var(--type-comparison-body-font-family);
+      font-size: var(--type-comparison-label-font-size);
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--color-badge-text);
+      background: var(--color-badge-background);
+      border-radius: var(--layout-comparison-panel-radius, 24px);
+      padding: 18px 32px;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide" id="slide">
+    <div class="pos slide-number" id="slide-number" dir="ltr" data-pos="comparisonSlide.slideNumberPosition"></div>
+
+    <div
+      class="pos fit-text comparison-title"
+      id="comparison-title"
+      data-fit="comparisonSlideTitle"
+      data-pos="comparisonSlide.titlePosition"
+    ></div>
+
+    <div class="pos" id="panels-wrap" data-pos="comparisonSlide.panelsPosition">
+      <div class="panels">
+        <div class="panel side-a">
+          <div class="panel-label" id="side-a-label"></div>
+          <ul class="panel-points fit-text" id="side-a-points" data-fit="comparisonSlideBody"></ul>
+        </div>
+        <div class="panel side-b">
+          <div class="panel-label" id="side-b-label"></div>
+          <ul class="panel-points fit-text" id="side-b-points" data-fit="comparisonSlideBody"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="pos comparison-verdict"
+      id="comparison-verdict"
+      data-pos="comparisonSlide.verdictPosition"
+    ></div>
+
+    <div
+      class="pos tech-badges hidden"
+      id="comparison-tech-badges"
+      data-tech-icons
+      data-pos="comparisonSlide.badgesPosition"
+    ></div>
+
+    <div id="slide-images" class="hidden"></div>
+    <div class="safe-guide" aria-hidden="true">
+      <div class="safe-guide-band top"></div>
+      <div class="safe-guide-band bottom"></div>
+      <div class="safe-guide-side left"></div>
+      <div class="safe-guide-side right"></div>
+    </div>
+  </div>
+  <script type="application/json" id="slide-data"></script>
+  <script id="tech-icons-data"></script>
+  <script src="shared/slide-runtime.js"></script>
+</body>
+</html>

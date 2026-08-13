@@ -1,0 +1,262 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-arabic-secondary, sans-serif);
+}
+
+.slide {
+  position: relative;
+  width: var(--slide-width);
+  height: var(--slide-height);
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+.pos {
+  position: absolute;
+  z-index: 1;
+}
+
+.pos[data-center="true"],
+.pos[data-center-x="true"] {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos[data-center="true"][data-center-y="true"],
+.pos[data-center-y="true"] {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pos[data-center="true"]:not([data-center-y="true"]) {
+  transform: translateX(-50%);
+}
+
+.fit-text {
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.hl-underline,
+.hl-underline-sketch {
+  text-decoration: none;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(
+    var(--color-highlight-marker),
+    var(--color-highlight-marker)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% var(--hl-thickness, 6px);
+  background-position: 0 calc(100% - var(--hl-offset, 2px));
+  padding-bottom: calc(var(--hl-offset, 2px) + 2px);
+}
+
+.hl-underline-sketch {
+  background-size: 100% calc(var(--hl-thickness, 6px) + 2px);
+  filter: none;
+}
+
+.hl-background {
+  background-color: var(--color-highlight-marker);
+  color: var(--color-background);
+  border-radius: 4px;
+  padding: 0 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hl-none {
+  /* semantic only */
+}
+
+.cyan-word {
+  color: var(--color-cyan-word);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ── BiDi / RTL inline isolation ───────────────────────────
+   Inline English technical terms inside Arabic text are wrapped
+   in <bdi dir="ltr" class="tech-inline"> by the slide runtime.
+   Isolation prevents punctuation/number corruption across the
+   bidi boundary. */
+bdi.tech-inline,
+.tech-inline {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline-block;
+}
+
+code.inline-code {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  font-family: var(--font-code-mono, monospace);
+  font-size: 0.82em;
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  color: var(--color-primary);
+  border-radius: 6px;
+  padding: 0.04em 0.35em;
+}
+
+/* ── Safe-zone guides (Instagram UI overlay) ───────────────
+   Hidden by default; shown when #slide[data-safe-zones="true"].
+   Studio UI toggles the attribute on the live preview. */
+.safe-guide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 900;
+}
+
+#slide[data-safe-zones="true"] .safe-guide {
+  display: block;
+}
+
+.safe-guide-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 45, 85, 0.16) 0 12px,
+    rgba(255, 45, 85, 0.07) 12px 24px
+  );
+}
+
+.safe-guide-band.top {
+  top: 0;
+  height: var(--safe-top, 120px);
+  border-bottom: 2px dashed rgba(255, 45, 85, 0.65);
+}
+
+.safe-guide-band.bottom {
+  bottom: 0;
+  height: var(--safe-bottom, 100px);
+  border-top: 2px dashed rgba(255, 45, 85, 0.65);
+}
+
+.safe-guide-side {
+  position: absolute;
+  top: var(--safe-top, 120px);
+  bottom: var(--safe-bottom, 100px);
+  width: var(--safe-x, 80px);
+  background: rgba(255, 170, 0, 0.05);
+}
+
+.safe-guide-side.left {
+  left: 0;
+  border-right: 2px dashed rgba(255, 170, 0, 0.4);
+}
+
+.safe-guide-side.right {
+  right: 0;
+  border-left: 2px dashed rgba(255, 170, 0, 0.4);
+}
+
+/* ── Tech icon badges ────────────────────────────────────── */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  width: 100%;
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-surface, #101018) 78%, transparent);
+  border: 1px solid var(--color-border, transparent);
+  color: var(--color-text-secondary);
+  font-family: var(--font-english-heading, monospace);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tech-badge svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  color: var(--color-primary);
+}
+
+.tech-badge .tech-badge-label {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* ── Brand watermark ─────────────────────────────────────── */
+.watermark {
+  font-family: var(--font-english-heading, sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--color-text-secondary);
+  opacity: 0.55;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
+
+/* ── Cyberpunk theme refinements (data-theme hook) ───────── */
+#slide[data-theme="cyberpunk"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.025) 0 1px,
+    transparent 1px 4px
+  );
+}
+
+#slide[data-theme="cyberpunk"] .code-block {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-primary) 60%, transparent),
+    0 0 36px color-mix(in srgb, var(--color-primary) 28%, transparent);
+}
+
+#slide[data-theme="cyberpunk"] .icon-frame {
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--color-primary) 55%, transparent),
+    0 0 54px color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+#slide[data-theme="cyberpunk"] .tech-badge {
+  border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}

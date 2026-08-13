@@ -1,0 +1,530 @@
+{
+  "_snapshot": true,
+  "_timestamp": "2026-08-07T12:07:49.093Z",
+  "_episodeFile": "jsron.json",
+  "content": {
+    "episode": "بعد الضغط على Login",
+    "series": "How I build it ?",
+    "slides": [
+      {
+        "type": "cover",
+        "series": "How I build it ?",
+        "title": "ضغطت Login... وهسه شنو صار؟ 🕵️"
+      },
+      {
+        "type": "quote",
+        "text": "أنت جالس، تكتب إيميلك وباسوردك، تضغط الزر... وبثانية وحدة تنفتح لوحة التحكم.\n\nبس وراء هاي الثانية؟ قصة كاملة تصير بالخفاء، بين خمس محطات، كل وحدة تحرس الباب قبل ما توصل للي بعدها.",
+        "paragraphs": [
+          {
+            "text": "أنت جالس، تكتب إيميلك وباسوردك، تضغط الزر... وبثانية وحدة تنفتح لوحة التحكم.\nبس وراء هاي الثانية؟ تسلسل احداث تصير بالخفاء، بين خمس اماكن، كل مكان يحرس الباب قبل ما توصل للي بعده.",
+            "highlights": [],
+            "cyanWords": []
+          }
+        ]
+      },
+      {
+        "type": "code",
+        "title": "المحطة 1",
+        "subtitle": "طلبك يوصل لموظف الاستقبال",
+        "codeLanguage": "TSX",
+        "code": "// actions/login.ts\nexport async function login(email: string, password: string) {\n  const supabase = createServerClient();\n  const { error } = await supabase.auth.signInWithPassword({\n    email,\n    password,\n  });\n}",
+        "explanation": "الفورم ما يروح مباشرة لـ Supabase.\nيوگف عند محطة أولى بالسيرفر — Server Action — هاي أول واحد يستلم طلبك ويشوفه."
+      },
+      {
+        "type": "code",
+        "title": "المحطة 2",
+        "subtitle": "الحارس يتأكد من هويتك",
+        "codeLanguage": "TSX",
+        "code": "// Supabase auth server\n// يتحقق من email + password\n// إذا صحيح، يرجع access_token + refresh_token",
+        "explanation": "Supabase هسه يفتح سجلاته، يقارن البيانات.\nإذا كل شي مطابق، يعطيك \"تصريح دخول\" — بس هاي التصاريح ما تنرمى عليك مباشرة بالمتصفح، وياها حكاية ثانية."
+      },
+      {
+        "type": "code",
+        "title": "المحطة 3",
+        "subtitle": "التصريح يروح لخزنة، مو لجيبك",
+        "codeLanguage": "TSX",
+        "code": "// @supabase/ssr\n// يكتب التوكنات داخل HTTP-only Cookie\n// المتصفح يخزنها، لكن JavaScript ما يقدر يقرأها",
+        "explanation": "وهنا أهم محطة بالقصة كلها.\nمكتبة `@supabase/ssr` تاخذ هذا التصريح الحساس وتحطه بخزنة مقفلة اسمها HTTP-only Cookie.\nيعني حتى لو حاول أحد يخترق موقعك بهجوم XSS، ما راح يلگه — لأن الكود اللي يشتغل بالمتصفح أصلاً ما عده مفتاح هاي الخزنة."
+      },
+      {
+        "type": "code",
+        "title": "المحطة 4",
+        "subtitle": "بس هسه تفتح الباب",
+        "codeLanguage": "TSX",
+        "code": "// بعد نجاح تخزين الـ Cookie\nredirect('/admin');",
+        "explanation": "هسة، وبس هسة يصير Redirect للوحة التحكم.\nليش هذا الترتيب مهم؟ لأن لو فتحوا الباب قبل ما تنخزن الخزنة، ممكن توصل لغرفة فارغة بلا جلسة صالحة أصلاً."
+      },
+      {
+        "type": "code",
+        "title": "المحطة 5",
+        "subtitle": "حارس ثاني يوگفك عند الباب",
+        "codeLanguage": "TSX",
+        "code": "// proxy.ts\n// كل طلب لـ /admin/* يمر من هنا\n// يتحقق من وجود جلسة صالحة بالـ Cookie",
+        "explanation": "حتى وأنت داخل.\nكل طلب جديد لـ `/admin` يمر أول من `proxy.ts` — حارس ثاني يتأكد إن الخزنة اللي وياك أصلية وصالحة،validate قبل ما يخليك تشوف أي شي."
+      },
+      {
+        "type": "quote",
+        "text": "إذن لما تضغط Login، أنت ما تفتح باب وحد.\n\nأنت تعبر خمس محطات: موظف استقبال → حارس هوية → خزنة مقفلة → إذن دخول → حارس ثاني.\n\nكلها عشان شي واحد بس: التوكن الحساس مالك ما يوصله كود غريب أبداً.",
+        "paragraphs": [
+          {
+            "text": "إذن لما تضغط Login، أنت ما تفتح باب وحد.\nأنت تعبر خمس محطات: موظف استقبال → حارس هوية → خزنة مقفلة → إذن دخول → حارس ثاني.\nكلها عشان شي واحد بس: التوكن الحساس مالك ما يوصله كود غريب أبداً.",
+            "highlights": [],
+            "cyanWords": []
+          }
+        ]
+      },
+      {
+        "type": "stat",
+        "value": "0",
+        "label": "وصول JavaScript المباشر للتوكن",
+        "subtext": "بسبب HTTP-only Cookies عبر @supabase/ssr"
+      },
+      {
+        "type": "comparison",
+        "title": "ليش هذا التسلسل المعقد ضروري",
+        "sideA": {
+          "label": "تخزين الـ Token بـ localStorage",
+          "points": [
+            "سهل التطبيق، بس JavaScript يكدر يوصله مباشرة",
+            "أي XSS attack = التوكن ينسرق بثانية"
+          ]
+        },
+        "sideB": {
+          "label": "httpOnly Cookies (الطريقة اللي استخدمها)",
+          "points": [
+            "الكود بالمتصفح ما عده صلاحية يقرا الخزنة",
+            "حتى لو انسرق سكربت خبيث، التوكن محمي"
+          ]
+        },
+        "verdict": "httpOnly Cookies (الطريقة اللي استخدمها)",
+        "techIcons": [
+          "javascript"
+        ],
+        "fontSizes": {
+          "comparisonSlideTitle": 70,
+          "comparisonSlideBody": 54
+        }
+      },
+      {
+        "type": "outro",
+        "question": "كل عملية Login تعبر خمس محطات: موظف استقبال، حارس هوية، خزنة مقفلة، إذن دخول، حارس ثاني.\nكل هالتسلسل لشي واحد بس — التوكن  مالك ما يوصله كود غريب أبداً.\nهذا نفس المبدأ اللي طبقته بكل مشروع أبنيه.\n",
+        "cta": "احفظ • شارك • تابع",
+        "imageAsset": "assets/shared/icons/sitehie-1786104350867.svg",
+        "handle": "@sitehie"
+      },
+      {
+        "type": "outro",
+        "question": "ما رأيك؟ اكتب في التعليقات",
+        "cta": "احفظ • شارك • تابع"
+      }
+    ]
+  },
+  "theme": {
+    "name": "warm-cream-clay",
+    "description": "Warm cream claymorphism — soft cream surfaces, terracotta accent, olive contrast",
+    "family": "dark",
+    "colors": {
+      "background": "#F5EFE6",
+      "primary": "#B08968",
+      "secondary": "#7F5539",
+      "textPrimary": "#3E2723",
+      "textSecondary": "#8D6E63",
+      "codeBackground": "#2D2419",
+      "highlightMarker": "#C1440E",
+      "codeText": "#EDE0D4",
+      "border": "#E6D5C3",
+      "progressTrack": "#E6D5C3",
+      "progressFill": "#B08968",
+      "badgeBackground": "#B08968",
+      "badgeText": "#FFFFFF",
+      "cyanWord": "#6B7B3F",
+      "annotationBg": "#DDB892",
+      "annotationText": "#3E2723",
+      "iconFrame": "#B08968",
+      "surface": "#FAF6F0",
+      "shadow": "rgba(176, 137, 104, 0.35)"
+    },
+    "fonts": {
+      "arabicPrimary": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic Bold.otf",
+        "weight": 700,
+        "format": "opentype"
+      },
+      "arabicPrimaryBlack": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic Black.otf",
+        "weight": 900,
+        "format": "opentype"
+      },
+      "arabicSecondary": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic.otf",
+        "weight": 400,
+        "format": "opentype"
+      },
+      "arabicSecondaryMedium": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic Medium.otf",
+        "weight": 500,
+        "format": "opentype"
+      },
+      "codeMono": {
+        "family": "JetBrains Mono",
+        "path": "shared/fonts/JetBrainsMono-Regular.woff2",
+        "weight": 400,
+        "format": "woff2"
+      },
+      "codeMonoBold": {
+        "family": "JetBrains Mono",
+        "path": "shared/fonts/JetBrainsMono-Bold.woff2",
+        "weight": 700,
+        "format": "woff2"
+      },
+      "englishHeading": {
+        "family": "JetBrains Mono",
+        "path": "shared/fonts/JetBrainsMono-Bold.woff2",
+        "weight": 700,
+        "format": "woff2"
+      },
+      "englishHeadingBold": {
+        "family": "Space Grotesk",
+        "path": "shared/fonts/SpaceGrotesk-Bold.woff2",
+        "weight": 700,
+        "format": "woff2"
+      }
+    },
+    "typography": {
+      "quoteSlide": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSizeMax": 60,
+        "fontSizeMin": 34,
+        "lineHeight": 1.6,
+        "fontWeight": 900
+      },
+      "codeSlideTitle": {
+        "fontFamily": "englishHeading",
+        "fontSize": 26,
+        "fontWeight": 700,
+        "letterSpacing": "-0.01em"
+      },
+      "codeSlideSubtitle": {
+        "fontFamily": "englishHeading",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "letterSpacing": "0.1em",
+        "textTransform": "uppercase"
+      },
+      "codeSlideCode": {
+        "fontFamily": "codeMono",
+        "fontSize": 30,
+        "fontSizeMax": 38,
+        "fontSizeMin": 18,
+        "lineHeight": 1.5,
+        "fontWeight": 400
+      },
+      "codeSlideExplanation": {
+        "fontFamily": "arabicSecondaryMedium",
+        "fontSize": 28,
+        "fontSizeMax": 32,
+        "fontSizeMin": 20,
+        "lineHeight": 1.65,
+        "fontWeight": 500
+      },
+      "codeSlideNumber": {
+        "fontFamily": "englishHeading",
+        "fontSize": 15,
+        "fontWeight": 700
+      },
+      "codeSlideFooter": {
+        "fontFamily": "englishHeading",
+        "fontSize": 15,
+        "fontWeight": 500
+      },
+      "codeSlideAnnotation": {
+        "fontFamily": "arabicSecondary",
+        "fontSize": 17,
+        "fontWeight": 400,
+        "lineHeight": 1.4
+      },
+      "coverSlideTitle": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSize": 46,
+        "fontSizeMax": 54,
+        "fontSizeMin": 30,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "coverSlideSeries": {
+        "fontFamily": "englishHeading",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "letterSpacing": "0.14em",
+        "textTransform": "uppercase"
+      },
+      "coverSlideHint": {
+        "fontFamily": "arabicSecondary",
+        "fontSize": 17,
+        "fontWeight": 400
+      },
+      "outroSlideQuestion": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSizeMax": 48,
+        "fontSizeMin": 28,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "outroSlideHandle": {
+        "fontFamily": "englishHeading",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "letterSpacing": "0.1em"
+      },
+      "outroSlideCta": {
+        "fontFamily": "arabicSecondaryMedium",
+        "fontSize": 20,
+        "fontWeight": 700
+      },
+      "comparisonSlideTitle": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSize": 42,
+        "fontSizeMax": 50,
+        "fontSizeMin": 28,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "comparisonSlideBody": {
+        "fontFamily": "arabicSecondaryMedium",
+        "fontSize": 23,
+        "fontSizeMax": 27,
+        "fontSizeMin": 17,
+        "lineHeight": 1.65,
+        "fontWeight": 500
+      },
+      "comparisonSlideLabel": {
+        "fontFamily": "englishHeading",
+        "fontSize": 20,
+        "fontWeight": 700
+      },
+      "statSlideValue": {
+        "fontFamily": "englishHeadingBold",
+        "fontSize": 110,
+        "fontSizeMax": 170,
+        "fontSizeMin": 68,
+        "lineHeight": 1,
+        "fontWeight": 700,
+        "letterSpacing": "-0.02em"
+      },
+      "statSlideLabel": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSize": 42,
+        "fontSizeMax": 50,
+        "fontSizeMin": 28,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "statSlideSubtext": {
+        "fontFamily": "arabicSecondary",
+        "fontSize": 25,
+        "fontSizeMax": 29,
+        "fontSizeMin": 19,
+        "lineHeight": 1.65,
+        "fontWeight": 400
+      }
+    },
+    "layout": {
+      "quoteSlide": {
+        "textAlign": "right",
+        "direction": "rtl",
+        "textPosition": {
+          "top": "18.22%",
+          "left": "16.42%",
+          "width": "73%",
+          "height": "58%"
+        },
+        "highlightMarkerStyle": "background",
+        "highlightUnderlineThickness": 0,
+        "highlightUnderlineOffset": 0,
+        "paragraphSpacing": "8px"
+      },
+      "codeSlide": {
+        "slideNumberPosition": {
+          "top": "12.95%",
+          "left": "84.56%"
+        },
+        "titlePosition": {
+          "top": "11.8%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "subtitlePosition": {
+          "top": "15.4%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "codeBlockPosition": {
+          "top": "22%",
+          "left": "7.5%",
+          "width": "85%",
+          "height": "40%"
+        },
+        "explanationPosition": {
+          "top": "64.04%",
+          "left": "6.34%",
+          "width": "85%",
+          "height": "21%"
+        },
+        "progressBarPosition": {
+          "bottom": "11%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "footerPosition": {
+          "top": "89%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "codeBlockBorderRadius": 28,
+        "codeBlockPadding": "32px 36px",
+        "progressBarHeight": 8,
+        "progressBarWidth": "100%",
+        "slideNumberBorderRadius": 999,
+        "slideNumberPadding": "8px 18px",
+        "explanationAlign": "right",
+        "explanationDirection": "rtl",
+        "annotationGap": 14
+      },
+      "coverSlide": {
+        "iconSize": "98.7%",
+        "iconPosition": {
+          "top": "14.77%",
+          "center": true
+        },
+        "titlePosition": {
+          "top": "68%",
+          "left": "10%",
+          "width": "80%"
+        },
+        "seriesPosition": {
+          "top": "10%",
+          "left": "10%",
+          "width": "80%"
+        },
+        "hintPosition": {
+          "bottom": "8.5%",
+          "center": true
+        },
+        "badgesPosition": {
+          "bottom": "15%",
+          "center": true,
+          "width": "84%"
+        },
+        "watermarkPosition": {
+          "bottom": "1.5%",
+          "center": true
+        },
+        "iconFrameWidth": 0,
+        "iconFrameRadius": 40,
+        "iconFramePadding": "36px",
+        "titleAlign": "center",
+        "titleDirection": "rtl",
+        "logoWidth": "100.5%",
+        "logoHeight": "100.5%",
+        "logoMaxHeight": "none"
+      },
+      "outroSlide": {
+        "imagePosition": {
+          "top": "12%",
+          "center": true,
+          "width": "26%"
+        },
+        "questionPosition": {
+          "top": "42%",
+          "center": true,
+          "width": "84%"
+        },
+        "brandPosition": {
+          "top": "86.79%",
+          "left": "0%"
+        },
+        "badgesPosition": {
+          "bottom": "21%",
+          "center": true,
+          "width": "84%"
+        },
+        "questionAlign": "center",
+        "questionDirection": "rtl"
+      },
+      "comparisonSlide": {
+        "slideNumberPosition": {
+          "top": "9.5%",
+          "left": "7.5%"
+        },
+        "titlePosition": {
+          "top": "14%",
+          "center": true,
+          "width": "85%"
+        },
+        "panelsPosition": {
+          "top": "26%",
+          "left": "7.5%",
+          "width": "85%",
+          "height": "44%"
+        },
+        "verdictPosition": {
+          "bottom": "9.5%",
+          "center": true,
+          "width": "85%"
+        },
+        "badgesPosition": {
+          "bottom": "19%",
+          "center": true,
+          "width": "84%"
+        },
+        "gap": 24,
+        "panelRadius": 28,
+        "panelPadding": "32px",
+        "titleAlign": "center",
+        "titleDirection": "rtl"
+      },
+      "statSlide": {
+        "slideNumberPosition": {
+          "top": "9.5%",
+          "left": "7.5%"
+        },
+        "valuePosition": {
+          "top": "28%",
+          "center": true,
+          "width": "90%"
+        },
+        "labelPosition": {
+          "top": "50%",
+          "center": true,
+          "width": "80%"
+        },
+        "subtextPosition": {
+          "top": "60%",
+          "center": true,
+          "width": "75%"
+        },
+        "badgesPosition": {
+          "bottom": "10%",
+          "center": true,
+          "width": "84%"
+        },
+        "align": "center",
+        "direction": "rtl"
+      }
+    },
+    "effects": {
+      "codeBlockShadow": "12px 12px 0 rgba(176, 137, 104, 0.25), -6px -6px 16px rgba(255,255,255,0.75)",
+      "iconShadow": "16px 16px 0 rgba(176, 137, 104, 0.2), -8px -8px 24px rgba(255,255,255,0.85)",
+      "surfaceRadius": 28,
+      "clayDepth": "inset 4px 4px 8px rgba(255,255,255,0.65), inset -4px -4px 8px rgba(62,39,35,0.08)"
+    },
+    "brand": {
+      "handle": "@sitehie",
+      "readingTimeSuffix": "min read"
+    }
+  }
+}

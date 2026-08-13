@@ -1,0 +1,26 @@
+{
+  "name": "@sitehie/ai-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI adapter implementations for Ollama and OpenCode.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "@sitehie/core": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Slide</title>
+  <link rel="stylesheet" href="shared/base.css" />
+  <style id="theme-fonts"></style>
+  <style id="theme-vars"></style>
+  <style>
+    .slide-number {
+      font-family: var(--type-code-number-font-family);
+      font-size: var(--type-code-number-font-size);
+      font-weight: var(--type-code-number-font-weight);
+      background: var(--color-badge-background);
+      color: var(--color-badge-text);
+      border-radius: var(--layout-code-number-radius);
+      padding: var(--layout-code-number-padding);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .slide-title {
+      font-family: var(--type-code-title-font-family);
+      font-size: var(--type-code-title-font-size);
+      font-weight: var(--type-code-title-font-weight);
+      letter-spacing: var(--type-code-title-letter-spacing, normal);
+      text-transform: var(--type-code-title-text-transform, none);
+      color: var(--color-text-primary);
+      line-height: 1.2;
+    }
+
+    .slide-subtitle {
+      font-family: var(--type-code-subtitle-font-family);
+      font-size: var(--type-code-subtitle-font-size);
+      font-weight: var(--type-code-subtitle-font-weight);
+      letter-spacing: var(--type-code-subtitle-letter-spacing, normal);
+      text-transform: var(--type-code-subtitle-text-transform, none);
+      color: var(--color-primary);
+      line-height: 1.2;
+    }
+
+    .code-block {
+      background: var(--color-code-background);
+      border-radius: var(--layout-code-block-radius);
+      padding: var(--layout-code-block-padding);
+      box-shadow: var(--effect-code-block-shadow, none);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      max-height: 100%;
+      width: 100%;
+    }
+
+    .code-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .code-block code {
+      font-family: var(--type-code-code-font-family);
+      font-size: var(--type-code-code-font-size);
+      font-weight: var(--type-code-code-font-weight);
+      line-height: var(--type-code-code-line-height);
+      color: var(--color-code-text);
+      direction: ltr;
+      unicode-bidi: embed;
+      text-align: left;
+    }
+
+    /* Prism token classes (build-time highlighter) mapped to theme colors */
+    .code-block .token.keyword,
+    .code-block .token.important,
+    .code-block .token.rule,
+    .code-block .token.tag { color: var(--color-secondary); }
+    .code-block .token.string,
+    .code-block .token.char,
+    .code-block .token.attr-value,
+    .code-block .token.regex,
+    .code-block .token.selector { color: var(--color-primary); }
+    .code-block .token.comment,
+    .code-block .token.prolog,
+    .code-block .token.cdata {
+      color: var(--color-text-secondary);
+      font-style: italic;
+    }
+    .code-block .token.number,
+    .code-block .token.boolean,
+    .code-block .token.constant,
+    .code-block .token.unit { color: var(--color-highlight-marker); }
+    .code-block .token.function,
+    .code-block .token.class-name,
+    .code-block .token.maybe-class-name,
+    .code-block .token.builtin { color: var(--color-primary); }
+    .code-block .token.property,
+    .code-block .token.attr-name { color: var(--color-secondary); }
+    .code-block .token.operator,
+    .code-block .token.punctuation { color: var(--color-text-secondary); }
+
+    /* Legacy regex highlighter (fallback path) */
+    .code-block .tok-keyword { color: var(--color-secondary); }
+    .code-block .tok-string { color: var(--color-primary); }
+    .code-block .tok-comment { color: var(--color-text-secondary); }
+    .code-block .tok-number { color: var(--color-highlight-marker); }
+    .code-block .tok-function { color: var(--color-primary); }
+    .code-block .tok-target {
+      background: color-mix(in srgb, var(--color-primary) 22%, transparent);
+      border-radius: 4px;
+      padding: 0 0.12em;
+      box-shadow: inset 0 -2px 0 var(--color-primary);
+    }
+
+    .annotations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--layout-code-annotation-gap);
+      margin-top: 16px;
+      direction: rtl;
+    }
+
+    .annotation {
+      font-family: var(--type-code-annotation-font-family);
+      font-size: var(--type-code-annotation-font-size);
+      font-weight: var(--type-code-annotation-font-weight);
+      line-height: var(--type-code-annotation-line-height);
+      background: var(--color-annotation-bg);
+      color: var(--color-annotation-text);
+      border-radius: 999px;
+      padding: 6px 14px;
+      direction: rtl;
+    }
+
+    .explanation {
+      font-family: var(--type-code-explanation-font-family);
+      font-size: var(--type-code-explanation-font-size);
+      font-weight: var(--type-code-explanation-font-weight);
+      line-height: var(--type-code-explanation-line-height);
+      color: var(--color-text-primary);
+      text-align: var(--layout-code-explanation-align);
+      direction: var(--layout-code-explanation-direction);
+      width: 100%;
+      height: 100%;
+    }
+
+    .progress-track {
+      width: var(--layout-code-progress-width);
+      height: var(--layout-code-progress-height);
+      background: var(--color-progress-track);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: var(--progress-pct, 0%);
+      background: var(--color-progress-fill);
+      border-radius: 999px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      font-family: var(--type-code-footer-font-family);
+      font-size: var(--type-code-footer-font-size);
+      font-weight: var(--type-code-footer-font-weight);
+      color: var(--color-text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="slide" id="slide">
+    <div class="pos slide-number" id="slide-number" dir="ltr" data-pos="codeSlide.slideNumberPosition"></div>
+    <div class="pos slide-title" id="slide-title" dir="ltr" data-pos="codeSlide.titlePosition"></div>
+    <div class="pos slide-subtitle" id="slide-subtitle" dir="ltr" data-pos="codeSlide.subtitlePosition"></div>
+
+    <div class="pos" id="code-wrap" dir="ltr" data-pos="codeSlide.codeBlockPosition">
+      <div class="code-block fit-text" id="code-block" data-fit="codeSlideCode">
+        <pre dir="ltr"><code id="code-content" dir="ltr"></code></pre>
+        <div class="annotations" id="annotations" dir="rtl"></div>
+      </div>
+    </div>
+
+    <div
+      class="pos fit-text explanation"
+      id="explanation"
+      data-fit="codeSlideExplanation"
+      data-pos="codeSlide.explanationPosition"
+    ></div>
+
+    <div class="pos" id="progress" data-pos="codeSlide.progressBarPosition">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="pos footer" id="footer" dir="ltr" data-pos="codeSlide.footerPosition">
+      <span id="footer-handle"></span>
+      <span id="footer-meta"></span>
+    </div>
+    <div id="slide-images" class="hidden"></div>
+    <div class="safe-guide" aria-hidden="true">
+      <div class="safe-guide-band top"></div>
+      <div class="safe-guide-band bottom"></div>
+      <div class="safe-guide-side left"></div>
+      <div class="safe-guide-side right"></div>
+    </div>
+  </div>
+  <script type="application/json" id="slide-data"></script>
+  <script id="tech-icons-data"></script>
+  <script src="shared/slide-runtime.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+{
+  "episode": "post",
+  "slides": [
+    {
+      "type": "cover",
+      "title": "JWT ببساطة"
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "سؤال بيحير كل مبرمج جديد… لغة سريعة وقوية زي الأسد؟ ولا لغة سهلة وسلسة زي النسيم؟ الحقيقة إن الاختيار بيعتمد على اللي عاوز تعمله بالظبط.",
+          "highlights": [],
+          "cyanWords": [
+            "C++",
+            "Python"
+          ]
+        },
+        {
+          "text": "في السلايدات الجاية هقارنهم في 6 نقاط: السرعة، الذاكرة، سهولة التعلم، الشيفرة، المجالات، وسوق العمل — وتبقى انت تحكم بنفسك.",
+          "highlights": [],
+          "cyanWords": [
+            "السرعة",
+            "الذاكرة",
+            "سهولة التعلم",
+            "الشيفرة",
+            "المجالات",
+            "سوق العمل"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "Python بتترجم للـ Machine Code مباشرة، فبتنفذ الشيفرة بأقصى سرعة. ده بيخليها الخيار الأول في الألعاب وأنظمة التشغيل وتطبيقات الوقت الحقيقي.",
+          "highlights": [
+            "أقصى سرعة"
+          ],
+          "cyanWords": [
+            "C++",
+            "Machine Code",
+            "الألعاب",
+            "أنظمة التشغيل"
+          ]
+        },
+        {
+          "text": "Python لغة مفسّرة (Interpreted) بتشتغل في طبقة فوق المعالج، فسرعتها أقل بوضوح. مناسبة للتطبيقات اللي الأداء فيها مش أولوية.",
+          "highlights": [
+            "أقل",
+            "مفسّرة"
+          ],
+          "cyanWords": [
+            "Interpreted"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "titleEn": "Performance Comparison",
+      "subtitleEn": "cpp vs python",
+      "code": "// C++ : compiled\nint sum = 0;\nfor (int i = 0; i < 1e9; i++) sum += i;\n\n# Python : interpreted\nsum = 0\nfor i in range(10**9):\n    sum += i",
+      "explanation": "نفس الحلقة البسيطة بتمشي أسرع عشرات المرات في C++ لأن الكود بيتحول لـ Machine Code قبل التنفيذ، بينما Python بتفسّر كل سطر أثناء التشغيل. ده بيفرق جدًا في الحلقات الكبيرة والحسابات الثقيلة.",
+      "annotations": [
+        {
+          "text": "سرعة عالية",
+          "target": "for"
+        },
+        {
+          "text": "تفسير أبطأ",
+          "target": "range"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "في C++ انت المتحكم الكامل في الذاكرة: بتعمل new و delete بإيدك. سيطرة قوية… بس لو نسيت تحرر الذاكرة، هتواجه Memory Leak أو مشاكل غامضة في الـ Pointers.",
+          "highlights": [
+            "Memory Leak",
+            "الـ Pointers",
+            "نسيت"
+          ],
+          "cyanWords": [
+            "new",
+            "delete",
+            "سيطرة"
+          ]
+        },
+        {
+          "text": "Python بتدير الذاكرة لوحدها عبر Garbage Collector بيتخلص تلقائيًا من اللي مابقاش مستخدم. أريح نفسيًا… لكن استهلاكها للذاكرة أعلى من C++.",
+          "highlights": [
+            "أعلى"
+          ],
+          "cyanWords": [
+            "Garbage Collector",
+            "تلقائيًا"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "نبدأ بالسهل: Python مكتوبة بحيث تقراها زي ما تقرا جملة إنجليزية. الـ Syntax بتاعها بسيط ومفهوم، فمبتدئ يكتب برنامج شغال في أول يوم.",
+          "highlights": [],
+          "cyanWords": [
+            "Python",
+            "Syntax"
+          ]
+        },
+        {
+          "text": "C++ معقدة: فيه Pointers و Templates و References و Memory Management. منحنى التعلم طويل وبتلاقي نفسك بتتوه في تفاصيل تقنية قبل ما تعمل أي حاجة مفيدة.",
+          "highlights": [
+            "معقدة",
+            "تتوه",
+            "Pointers",
+            "Templates"
+          ],
+          "cyanWords": [
+            "Memory Management"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "titleEn": "Hello World: The Gap",
+      "subtitleEn": "cpp vs python",
+      "code": "// C++\n#include <iostream>\nint main() {\n    std::cout << \"Hello\";\n    return 0;\n}\n\n# Python\nprint(\"Hello\")",
+      "explanation": "أبسط برنامج ممكن يبين الفرق: Python بتحتاج سطر واحد عشان تطبع نص، بينما C++ محتاجة 5 أسطر تشمل مكتبات ودالة رئيسية. نفس الفجوة بتكبر مع كل مشروع.",
+      "annotations": [
+        {
+          "text": "سطر واحد",
+          "target": "print"
+        },
+        {
+          "text": "تركيب كامل",
+          "target": "main"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "C++ هي الملك هنا: محركات الألعاب زي Unreal Engine، أنظمة التشغيل، المتصفحات، وأنظمة السيارات والتطبيقات المدمجة — كلها مبنية على سرعتها وتحكمها الكامل في العتاد.",
+          "highlights": [],
+          "cyanWords": [
+            "Unreal Engine",
+            "أنظمة التشغيل",
+            "المتصفحات"
+          ]
+        },
+        {
+          "text": "Python بتتصدر في عالم البيانات والذكاء الاصطناعي: مكتبات زي TensorFlow و PyTorch و pandas. كمان مشاريع الأتمتة وتطوير الويب بتبقى أسرع في البناء بكتير.",
+          "highlights": [],
+          "cyanWords": [
+            "TensorFlow",
+            "PyTorch",
+            "pandas",
+            "الذكاء الاصطناعي",
+            "الأتمتة"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "Python هي اللغة الأكثر طلبًا للمبتدئين ولعلوم البيانات، ووظائفها في الغالب سهلة الدخول. لو هدفك تدخل عالم البرمجة سريعًا، تبدأ بيها.",
+          "highlights": [],
+          "cyanWords": [
+            "Python",
+            "المبتدئين",
+            "علوم البيانات"
+          ]
+        },
+        {
+          "text": "C++ وظائفها أقل عددًا لكن رواتبها أعلى لأنها تطلب خبرة و مهارة عميقة. المهندس الخبير فيها يبقى عملة نادرة وسوقه دايمًا محتاجه.",
+          "highlights": [
+            "خبير",
+            "نادرة"
+          ],
+          "cyanWords": [
+            "C++",
+            "رواتبها أعلى"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "الخلاصة: مش السؤال إيه أفضل لغة… السؤال إيه اللي يناسب مشروعك. C++ للقوة والتحكم، Python للسرعة في الإنجاز.",
+          "highlights": [],
+          "cyanWords": [
+            "C++",
+            "Python",
+            "القوة",
+            "التحكم",
+            "السرعة"
+          ]
+        }
+      ]
+    }
+  ]
+}

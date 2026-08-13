@@ -1,0 +1,530 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://sitehie.com/carousel-theme.schema.json",
+  "title": "Sitehie Carousel Theme",
+  "type": "object",
+  "required": ["name", "colors", "fonts", "typography", "layout"],
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "family": {
+      "type": "string",
+      "enum": ["dark", "light", "cyberpunk"],
+      "description": "Theme family stamped onto #slide[data-theme] for CSS refinements. Defaults to dark when omitted."
+    },
+    "colors": {
+      "type": "object",
+      "required": [
+        "background",
+        "primary",
+        "secondary",
+        "textPrimary",
+        "textSecondary",
+        "codeBackground",
+        "highlightMarker"
+      ],
+      "additionalProperties": { "type": "string" },
+      "properties": {
+        "background": { "type": "string" },
+        "primary": { "type": "string" },
+        "secondary": { "type": "string" },
+        "textPrimary": { "type": "string" },
+        "textSecondary": { "type": "string" },
+        "codeBackground": { "type": "string" },
+        "highlightMarker": { "type": "string" },
+        "codeText": { "type": "string" },
+        "border": { "type": "string" },
+        "progressTrack": { "type": "string" },
+        "progressFill": { "type": "string" },
+        "badgeBackground": { "type": "string" },
+        "badgeText": { "type": "string" },
+        "cyanWord": { "type": "string" },
+        "annotationBg": { "type": "string" },
+        "annotationText": { "type": "string" },
+        "iconFrame": { "type": "string" },
+        "surface": { "type": "string" },
+        "shadow": { "type": "string" }
+      }
+    },
+    "fonts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["family", "path"],
+        "properties": {
+          "family": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "minLength": 1 },
+          "weight": { "type": ["number", "string"] },
+          "style": { "type": "string" },
+          "format": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["quoteSlide", "codeSlideTitle", "codeSlideExplanation"],
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "fontFamily": { "type": "string" },
+          "fontSize": { "type": "number" },
+          "fontSizeMax": { "type": "number" },
+          "fontSizeMin": { "type": "number" },
+          "lineHeight": { "type": "number" },
+          "fontWeight": { "type": ["number", "string"] },
+          "letterSpacing": { "type": ["number", "string"] },
+          "textTransform": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "properties": {
+        "quoteSlide": {
+          "type": "object",
+          "required": ["fontFamily", "fontSizeMax", "fontSizeMin", "lineHeight", "fontWeight"],
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "codeSlideTitle": {
+          "type": "object",
+          "required": ["fontFamily", "fontSize", "fontWeight"],
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "codeSlideSubtitle": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "codeSlideCode": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "codeSlideExplanation": {
+          "type": "object",
+          "required": ["fontFamily", "fontSize", "lineHeight"],
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "codeSlideNumber": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "codeSlideFooter": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "codeSlideAnnotation": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "coverSlideTitle": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "coverSlideSeries": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "coverSlideHint": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "outroSlideQuestion": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "outroSlideHandle": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "outroSlideCta": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "comparisonSlideTitle": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "comparisonSlideBody": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "comparisonSlideLabel": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "statSlideValue": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "statSlideLabel": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "statSlideSubtext": {
+          "type": "object",
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "fontSizeMax": { "type": "number" },
+            "fontSizeMin": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": ["number", "string"] },
+            "letterSpacing": { "type": ["number", "string"] },
+            "textTransform": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "required": ["quoteSlide", "codeSlide", "coverSlide"],
+      "additionalProperties": false,
+      "properties": {
+        "quoteSlide": {
+          "type": "object",
+          "required": ["textAlign", "textPosition", "paragraphSpacing"],
+          "properties": {
+            "textAlign": { "type": "string", "enum": ["right", "left", "center", "start", "end"] },
+            "textPosition": { "$ref": "#/definitions/positionBox" },
+            "highlightMarkerStyle": {
+              "type": "string",
+              "enum": ["underline-sketch", "underline", "background", "none"]
+            },
+            "highlightUnderlineThickness": { "type": "number" },
+            "highlightUnderlineOffset": { "type": "number" },
+            "direction": { "type": "string", "enum": ["rtl", "ltr"] },
+            "safePadding": { "type": "string" },
+            "paragraphSpacing": { "type": ["number", "string"] }
+          },
+          "additionalProperties": false
+        },
+        "codeSlide": {
+          "type": "object",
+          "required": [
+            "slideNumberPosition",
+            "titlePosition",
+            "codeBlockPosition",
+            "explanationPosition",
+            "progressBarPosition",
+            "footerPosition"
+          ],
+          "properties": {
+            "slideNumberPosition": { "$ref": "#/definitions/positionBox" },
+            "titlePosition": { "$ref": "#/definitions/positionBox" },
+            "subtitlePosition": { "$ref": "#/definitions/positionBox" },
+            "codeBlockPosition": { "$ref": "#/definitions/positionBox" },
+            "explanationPosition": { "$ref": "#/definitions/positionBox" },
+            "progressBarPosition": { "$ref": "#/definitions/positionBox" },
+            "footerPosition": { "$ref": "#/definitions/positionBox" },
+            "codeBlockBorderRadius": { "type": "number" },
+            "codeBlockPadding": { "type": "string" },
+            "progressBarHeight": { "type": "number" },
+            "progressBarWidth": { "type": "string" },
+            "slideNumberBorderRadius": { "type": "number" },
+            "slideNumberPadding": { "type": "string" },
+            "explanationAlign": { "type": "string" },
+            "explanationDirection": { "type": "string", "enum": ["rtl", "ltr"] },
+            "annotationGap": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        "coverSlide": {
+          "type": "object",
+          "required": ["iconSize", "iconPosition", "titlePosition"],
+          "properties": {
+            "iconSize": { "type": "string" },
+            "iconPosition": { "$ref": "#/definitions/positionBox" },
+            "titlePosition": { "$ref": "#/definitions/positionBox" },
+            "seriesPosition": { "$ref": "#/definitions/positionBox" },
+            "hintPosition": { "$ref": "#/definitions/positionBox" },
+            "badgesPosition": { "$ref": "#/definitions/positionBox" },
+            "watermarkPosition": { "$ref": "#/definitions/positionBox" },
+            "iconFrameWidth": { "type": "number" },
+            "iconFrameRadius": { "type": "number" },
+            "iconFramePadding": { "type": "string" },
+            "logoWidth": { "type": "string", "description": "Override icon frame width (defaults to iconSize). Use with logoMaxHeight to control logo display size independently of the frame." },
+            "logoHeight": { "type": "string", "description": "Explicit icon frame height when logoWidth is set. Defaults to auto." },
+            "logoMaxHeight": { "type": "string", "description": "Maximum height for the logo image. When set alongside logoWidth, the logo scales to fit within the specified box while preserving aspect ratio." },
+            "titleAlign": { "type": "string" },
+            "titleDirection": { "type": "string", "enum": ["rtl", "ltr"] }
+          },
+          "additionalProperties": false
+        },
+        "outroSlide": {
+          "type": "object",
+          "required": ["imagePosition", "questionPosition", "brandPosition", "questionAlign", "questionDirection"],
+          "properties": {
+            "imagePosition": { "$ref": "#/definitions/positionBox" },
+            "questionPosition": { "$ref": "#/definitions/positionBox" },
+            "brandPosition": { "$ref": "#/definitions/positionBox" },
+            "badgesPosition": { "$ref": "#/definitions/positionBox" },
+            "questionAlign": { "type": "string" },
+            "questionDirection": { "type": "string", "enum": ["rtl", "ltr"] },
+            "brandGap": { "type": ["number", "string"] },
+            "ctaRadius": { "type": "number" },
+            "ctaPadding": { "type": "string" },
+            "ctaShadow": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "comparisonSlide": {
+          "type": "object",
+          "required": ["slideNumberPosition", "titlePosition", "panelsPosition"],
+          "properties": {
+            "slideNumberPosition": { "$ref": "#/definitions/positionBox" },
+            "titlePosition": { "$ref": "#/definitions/positionBox" },
+            "panelsPosition": { "$ref": "#/definitions/positionBox" },
+            "verdictPosition": { "$ref": "#/definitions/positionBox" },
+            "badgesPosition": { "$ref": "#/definitions/positionBox" },
+            "gap": { "type": ["number", "string"] },
+            "panelRadius": { "type": "number" },
+            "panelPadding": { "type": "string" },
+            "titleAlign": { "type": "string" },
+            "titleDirection": { "type": "string", "enum": ["rtl", "ltr"] }
+          },
+          "additionalProperties": false
+        },
+        "statSlide": {
+          "type": "object",
+          "required": ["valuePosition"],
+          "properties": {
+            "slideNumberPosition": { "$ref": "#/definitions/positionBox" },
+            "valuePosition": { "$ref": "#/definitions/positionBox" },
+            "labelPosition": { "$ref": "#/definitions/positionBox" },
+            "subtextPosition": { "$ref": "#/definitions/positionBox" },
+            "badgesPosition": { "$ref": "#/definitions/positionBox" },
+            "align": { "type": "string" },
+            "direction": { "type": "string", "enum": ["rtl", "ltr"] }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "effects": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "codeBlockShadow": { "type": "string" },
+        "iconShadow": { "type": "string" },
+        "surfaceRadius": { "type": "number" },
+        "clayDepth": { "type": "string" }
+      }
+    },
+    "brand": {
+      "type": "object",
+      "properties": {
+        "handle": { "type": "string" },
+        "readingTimeSuffix": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "definitions": {
+    "positionBox": {
+      "type": "object",
+      "properties": {
+        "top": { "type": "string" },
+        "right": { "type": "string" },
+        "bottom": { "type": "string" },
+        "left": { "type": "string" },
+        "width": { "type": "string" },
+        "height": { "type": "string" },
+        "center": { "type": "boolean" },
+        "centerX": { "type": "boolean" },
+        "centerY": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

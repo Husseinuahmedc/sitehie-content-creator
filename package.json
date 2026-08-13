@@ -1,0 +1,12 @@
+{
+  "name": "sitehie-content-creator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "sitehie content creator — transitional npm workspace root",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "studio-ui",
+    "carousel-tool"
+  ]
+}

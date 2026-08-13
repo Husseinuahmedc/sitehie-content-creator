@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cover Slide</title>
+  <link rel="stylesheet" href="shared/base.css" />
+  <style id="theme-fonts"></style>
+  <style id="theme-vars"></style>
+  <style>
+    .series {
+      font-family: var(--type-cover-series-font-family);
+      font-size: var(--type-cover-series-font-size);
+      font-weight: var(--type-cover-series-font-weight);
+      letter-spacing: var(--type-cover-series-letter-spacing, normal);
+      text-transform: var(--type-cover-series-text-transform, none);
+      color: var(--color-primary);
+      text-align: center;
+      width: 100%;
+    }
+
+    .icon-frame {
+      width: var(--layout-cover-logo-width, var(--layout-cover-icon-size));
+      height: var(--layout-cover-logo-height, var(--layout-cover-logo-width, var(--layout-cover-icon-size)));
+      max-height: var(--layout-cover-logo-max-height, none);
+      border: var(--layout-cover-icon-frame-width) solid var(--color-icon-frame);
+      border-radius: var(--layout-cover-icon-frame-radius);
+      padding: var(--layout-cover-icon-frame-padding);
+      box-shadow: var(--effect-icon-shadow, none);
+      background: var(--color-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .icon-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .icon-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--type-cover-title-font-family);
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--color-primary);
+      background: radial-gradient(
+        circle at 30% 30%,
+        color-mix(in srgb, var(--color-primary) 25%, transparent),
+        transparent 70%
+      );
+    }
+
+    .cover-title {
+      font-family: var(--type-cover-title-font-family);
+      font-size: var(--type-cover-title-font-size);
+      font-weight: var(--type-cover-title-font-weight);
+      line-height: var(--type-cover-title-line-height);
+      color: var(--color-text-primary);
+      text-align: var(--layout-cover-title-align);
+      direction: var(--layout-cover-title-direction);
+      width: 100%;
+    }
+
+    .hint {
+      font-family: var(--type-cover-hint-font-family);
+      font-size: var(--type-cover-hint-font-size);
+      font-weight: var(--type-cover-hint-font-weight);
+      color: var(--color-text-secondary);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hint-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .hint-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-text-secondary);
+      opacity: 0.4;
+    }
+
+    .hint-dots span.active {
+      background: var(--color-primary);
+      opacity: 1;
+      width: 22px;
+      border-radius: 999px;
+    }
+
+    .swipe-arrow {
+      font-size: 20px;
+      color: var(--color-primary);
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide" id="slide">
+    <div class="pos series" id="series" data-pos="coverSlide.seriesPosition"></div>
+
+    <div class="pos" id="icon-wrap" data-pos="coverSlide.iconPosition">
+      <div class="icon-frame" id="icon-frame">
+        <img id="icon-img" alt="" class="hidden" />
+        <div class="icon-placeholder" id="icon-placeholder">◆</div>
+      </div>
+    </div>
+
+    <div
+      class="pos fit-text cover-title"
+      id="cover-title"
+      data-fit="coverSlideTitle"
+      data-pos="coverSlide.titlePosition"
+    ></div>
+
+    <div class="pos hint" id="hint" data-pos="coverSlide.hintPosition">
+      <div class="hint-dots" id="hint-dots"></div>
+      <div class="swipe-arrow">← اسحب</div>
+    </div>
+
+    <div
+      class="pos tech-badges hidden"
+      id="cover-tech-badges"
+      data-tech-icons
+      data-pos="coverSlide.badgesPosition"
+    ></div>
+
+    <div
+      class="pos watermark"
+      id="cover-watermark"
+      data-watermark
+      data-pos="coverSlide.watermarkPosition"
+    ></div>
+
+    <div id="slide-images" class="hidden"></div>
+    <div class="safe-guide" aria-hidden="true">
+      <div class="safe-guide-band top"></div>
+      <div class="safe-guide-band bottom"></div>
+      <div class="safe-guide-side left"></div>
+      <div class="safe-guide-side right"></div>
+    </div>
+  </div>
+  <script type="application/json" id="slide-data"></script>
+  <script id="tech-icons-data"></script>
+  <script src="shared/slide-runtime.js"></script>
+</body>
+</html>

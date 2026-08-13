@@ -1,0 +1,46 @@
+{
+  "name": "@sitehie/core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pure domain logic for sitehie carousel: types, style resolution, and validation. Zero I/O, zero framework imports.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./domain": {
+      "types": "./dist/domain/index.d.ts",
+      "default": "./dist/domain/index.js"
+    },
+    "./resolver": {
+      "types": "./dist/resolver/index.d.ts",
+      "default": "./dist/resolver/index.js"
+    },
+    "./validation": {
+      "types": "./dist/validation/index.d.ts",
+      "default": "./dist/validation/index.js"
+    },
+    "./ports": {
+      "types": "./dist/ports/index.d.ts",
+      "default": "./dist/ports/index.js"
+    },
+    "./presentation": {
+      "types": "./dist/presentation/index.d.ts",
+      "default": "./dist/presentation/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

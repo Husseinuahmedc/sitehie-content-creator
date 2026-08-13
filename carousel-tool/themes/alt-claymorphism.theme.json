@@ -1,0 +1,408 @@
+{
+  "name": "alt-claymorphism",
+  "description": "Soft claymorphism alternate — warm surfaces, rounded depth, purple accent",
+  "family": "light",
+  "colors": {
+    "background": "#f8e8e8",
+    "primary": "#6C5CE7",
+    "secondary": "#487f74",
+    "textPrimary": "#2D3436",
+    "textSecondary": "#636E72",
+    "codeBackground": "#2D3436",
+    "highlightMarker": "#ad7310",
+    "codeText": "#DFE6E9",
+    "border": "#D1CBE0",
+    "progressTrack": "#D1CBE0",
+    "progressFill": "#6C5CE7",
+    "badgeBackground": "#6C5CE7",
+    "badgeText": "#FFFFFF",
+    "cyanWord": "#135e67",
+    "annotationBg": "#FD79A8",
+    "annotationText": "#FFFFFF",
+    "iconFrame": "#6C5CE7",
+    "surface": "#F5F2FA",
+    "shadow": "rgba(108, 92, 231, 0.35)"
+  },
+  "fonts": {
+    "arabicPrimary": {
+      "family": "Qahwa Arabic",
+      "path": "shared/fonts/Qahwa Arabic Bold.otf",
+      "weight": 700,
+      "format": "opentype"
+    },
+    "arabicPrimaryBlack": {
+      "family": "Qahwa Arabic",
+      "path": "shared/fonts/Qahwa Arabic Black.otf",
+      "weight": 900,
+      "format": "opentype"
+    },
+    "arabicSecondary": {
+      "family": "Qahwa Arabic",
+      "path": "shared/fonts/Qahwa Arabic.otf",
+      "weight": 400,
+      "format": "opentype"
+    },
+    "arabicSecondaryMedium": {
+      "family": "Qahwa Arabic",
+      "path": "shared/fonts/Qahwa Arabic Medium.otf",
+      "weight": 500,
+      "format": "opentype"
+    },
+    "codeMono": {
+      "family": "JetBrains Mono",
+      "path": "shared/fonts/JetBrainsMono-Regular.woff2",
+      "weight": 400,
+      "format": "woff2"
+    },
+    "codeMonoBold": {
+      "family": "JetBrains Mono",
+      "path": "shared/fonts/JetBrainsMono-Bold.woff2",
+      "weight": 700,
+      "format": "woff2"
+    },
+    "englishHeading": {
+      "family": "JetBrains Mono",
+      "path": "shared/fonts/JetBrainsMono-Bold.woff2",
+      "weight": 700,
+      "format": "woff2"
+    },
+    "englishHeadingBold": {
+      "family": "Space Grotesk",
+      "path": "shared/fonts/SpaceGrotesk-Bold.woff2",
+      "weight": 700,
+      "format": "woff2"
+    }
+  },
+  "typography": {
+    "quoteSlide": {
+      "fontFamily": "arabicPrimaryBlack",
+      "fontSizeMax": 60,
+      "fontSizeMin": 34,
+      "lineHeight": 1.6,
+      "fontWeight": 900
+    },
+    "codeSlideTitle": {
+      "fontFamily": "englishHeading",
+      "fontSize": 26,
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
+    },
+    "codeSlideSubtitle": {
+      "fontFamily": "englishHeading",
+      "fontSize": 16,
+      "fontWeight": 500,
+      "letterSpacing": "0.1em",
+      "textTransform": "uppercase"
+    },
+    "codeSlideCode": {
+      "fontFamily": "codeMono",
+      "fontSize": 30,
+      "fontSizeMax": 38,
+      "fontSizeMin": 18,
+      "lineHeight": 1.5,
+      "fontWeight": 400
+    },
+    "codeSlideExplanation": {
+      "fontFamily": "arabicSecondaryMedium",
+      "fontSize": 28,
+      "fontSizeMax": 32,
+      "fontSizeMin": 20,
+      "lineHeight": 1.65,
+      "fontWeight": 500
+    },
+    "codeSlideNumber": {
+      "fontFamily": "englishHeading",
+      "fontSize": 15,
+      "fontWeight": 700
+    },
+    "codeSlideFooter": {
+      "fontFamily": "englishHeading",
+      "fontSize": 15,
+      "fontWeight": 500
+    },
+    "codeSlideAnnotation": {
+      "fontFamily": "arabicSecondary",
+      "fontSize": 17,
+      "fontWeight": 400,
+      "lineHeight": 1.4
+    },
+    "coverSlideTitle": {
+      "fontFamily": "arabicPrimaryBlack",
+      "fontSize": 46,
+      "fontSizeMax": 54,
+      "fontSizeMin": 30,
+      "lineHeight": 1.4,
+      "fontWeight": 900
+    },
+    "coverSlideSeries": {
+      "fontFamily": "englishHeading",
+      "fontSize": 16,
+      "fontWeight": 500,
+      "letterSpacing": "0.14em",
+      "textTransform": "uppercase"
+    },
+    "coverSlideHint": {
+      "fontFamily": "arabicSecondary",
+      "fontSize": 17,
+      "fontWeight": 400
+    },
+    "outroSlideQuestion": {
+      "fontFamily": "arabicPrimaryBlack",
+      "fontSizeMax": 48,
+      "fontSizeMin": 28,
+      "lineHeight": 1.4,
+      "fontWeight": 900
+    },
+    "outroSlideHandle": {
+      "fontFamily": "englishHeading",
+      "fontSize": 16,
+      "fontWeight": 500,
+      "letterSpacing": "0.1em"
+    },
+    "outroSlideCta": {
+      "fontFamily": "arabicSecondaryMedium",
+      "fontSize": 20,
+      "fontWeight": 700
+    },
+    "comparisonSlideTitle": {
+      "fontFamily": "arabicPrimaryBlack",
+      "fontSize": 42,
+      "fontSizeMax": 50,
+      "fontSizeMin": 28,
+      "lineHeight": 1.4,
+      "fontWeight": 900
+    },
+    "comparisonSlideBody": {
+      "fontFamily": "arabicSecondaryMedium",
+      "fontSize": 23,
+      "fontSizeMax": 27,
+      "fontSizeMin": 17,
+      "lineHeight": 1.65,
+      "fontWeight": 500
+    },
+    "comparisonSlideLabel": {
+      "fontFamily": "englishHeading",
+      "fontSize": 20,
+      "fontWeight": 700
+    },
+    "statSlideValue": {
+      "fontFamily": "englishHeadingBold",
+      "fontSize": 110,
+      "fontSizeMax": 170,
+      "fontSizeMin": 68,
+      "lineHeight": 1,
+      "fontWeight": 700,
+      "letterSpacing": "-0.02em"
+    },
+    "statSlideLabel": {
+      "fontFamily": "arabicPrimaryBlack",
+      "fontSize": 42,
+      "fontSizeMax": 50,
+      "fontSizeMin": 28,
+      "lineHeight": 1.4,
+      "fontWeight": 900
+    },
+    "statSlideSubtext": {
+      "fontFamily": "arabicSecondary",
+      "fontSize": 25,
+      "fontSizeMax": 29,
+      "fontSizeMin": 19,
+      "lineHeight": 1.65,
+      "fontWeight": 400
+    }
+  },
+  "layout": {
+    "quoteSlide": {
+      "textAlign": "right",
+      "direction": "rtl",
+      "textPosition": {
+        "top": "12%",
+        "left": "10%",
+        "width": "80%",
+        "height": "58%"
+      },
+      "highlightMarkerStyle": "background",
+      "highlightUnderlineThickness": 0,
+      "highlightUnderlineOffset": 0,
+      "paragraphSpacing": "32px"
+    },
+    "codeSlide": {
+      "slideNumberPosition": {
+        "top": "9.5%",
+        "right": "7.5%"
+      },
+      "titlePosition": {
+        "top": "13.5%",
+        "left": "7.5%",
+        "width": "85%"
+      },
+      "subtitlePosition": {
+        "top": "17%",
+        "left": "7.5%",
+        "width": "85%"
+      },
+      "codeBlockPosition": {
+        "top": "22%",
+        "left": "7.5%",
+        "width": "85%",
+        "height": "40%"
+      },
+      "explanationPosition": {
+        "top": "65%",
+        "left": "7.5%",
+        "width": "85%",
+        "height": "21%"
+      },
+      "progressBarPosition": {
+        "bottom": "11%",
+        "left": "7.5%",
+        "width": "85%"
+      },
+      "footerPosition": {
+        "bottom": "8%",
+        "left": "7.5%",
+        "width": "85%"
+      },
+      "codeBlockBorderRadius": 28,
+      "codeBlockPadding": "32px 36px",
+      "progressBarHeight": 8,
+      "progressBarWidth": "100%",
+      "slideNumberBorderRadius": 999,
+      "slideNumberPadding": "8px 18px",
+      "explanationAlign": "right",
+      "explanationDirection": "rtl",
+      "annotationGap": 14
+    },
+    "coverSlide": {
+      "iconSize": "100.5%",
+      "iconPosition": {
+        "top": "17.51%",
+        "center": true
+      },
+      "titlePosition": {
+        "top": "68%",
+        "left": "10%",
+        "width": "80%"
+      },
+      "seriesPosition": {
+        "top": "10%",
+        "left": "10%",
+        "width": "80%"
+      },
+      "hintPosition": {
+        "bottom": "8.5%",
+        "center": true
+      },
+      "badgesPosition": {
+        "bottom": "15%",
+        "center": true,
+        "width": "84%"
+      },
+      "watermarkPosition": {
+        "bottom": "1.5%",
+        "center": true
+      },
+      "iconFrameWidth": 0,
+      "iconFrameRadius": 40,
+      "iconFramePadding": "36px",
+      "titleAlign": "center",
+      "titleDirection": "rtl",
+      "logoWidth": "100.5%",
+      "logoHeight": "100.5%",
+      "logoMaxHeight": "none"
+    },
+    "outroSlide": {
+      "imagePosition": {
+        "top": "12%",
+        "center": true,
+        "width": "26%"
+      },
+      "questionPosition": {
+        "top": "42%",
+        "center": true,
+        "width": "84%"
+      },
+      "brandPosition": {
+        "bottom": "9.5%",
+        "center": true
+      },
+      "badgesPosition": {
+        "bottom": "21%",
+        "center": true,
+        "width": "84%"
+      },
+      "questionAlign": "center",
+      "questionDirection": "rtl"
+    },
+    "comparisonSlide": {
+      "slideNumberPosition": {
+        "top": "9.5%",
+        "left": "7.5%"
+      },
+      "titlePosition": {
+        "top": "14%",
+        "center": true,
+        "width": "85%"
+      },
+      "panelsPosition": {
+        "top": "26%",
+        "left": "7.5%",
+        "width": "85%",
+        "height": "44%"
+      },
+      "verdictPosition": {
+        "bottom": "9.5%",
+        "center": true,
+        "width": "85%"
+      },
+      "badgesPosition": {
+        "bottom": "19%",
+        "center": true,
+        "width": "84%"
+      },
+      "gap": 24,
+      "panelRadius": 28,
+      "panelPadding": "32px",
+      "titleAlign": "center",
+      "titleDirection": "rtl"
+    },
+    "statSlide": {
+      "slideNumberPosition": {
+        "top": "9.5%",
+        "left": "7.5%"
+      },
+      "valuePosition": {
+        "top": "28%",
+        "center": true,
+        "width": "90%"
+      },
+      "labelPosition": {
+        "top": "50%",
+        "center": true,
+        "width": "80%"
+      },
+      "subtextPosition": {
+        "top": "60%",
+        "center": true,
+        "width": "75%"
+      },
+      "badgesPosition": {
+        "bottom": "10%",
+        "center": true,
+        "width": "84%"
+      },
+      "align": "center",
+      "direction": "rtl"
+    }
+  },
+  "effects": {
+    "codeBlockShadow": "12px 12px 0 rgba(108, 92, 231, 0.25), -6px -6px 16px rgba(255,255,255,0.7)",
+    "iconShadow": "16px 16px 0 rgba(108, 92, 231, 0.2), -8px -8px 24px rgba(255,255,255,0.8)",
+    "surfaceRadius": 28,
+    "clayDepth": "inset 4px 4px 8px rgba(255,255,255,0.6), inset -4px -4px 8px rgba(0,0,0,0.08)"
+  },
+  "brand": {
+    "handle": "@sitehie",
+    "readingTimeSuffix": "min read"
+  }
+}

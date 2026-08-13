@@ -1,0 +1,68 @@
+{
+  "episode": "New_Post",
+  "slides": [
+    {
+      "type": "cover",
+      "title": "2"
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "نص الاقتباس…",
+          "highlights": [],
+          "cyanWords": []
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "نص الاقتباس…",
+          "highlights": [],
+          "cyanWords": []
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "نص الاقتباس…",
+          "highlights": [],
+          "cyanWords": []
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "title": "مقارنة جديدة",
+      "sideA": {
+        "label": "Option A",
+        "points": [
+          "نقطة أولى",
+          "نقطة ثانية"
+        ]
+      },
+      "sideB": {
+        "label": "Option B",
+        "points": [
+          "نقطة أولى",
+          "نقطة ثانية"
+        ]
+      }
+    },
+    {
+      "type": "stat",
+      "value": "10x",
+      "label": "عنوان المقياس",
+      "subtext": ""
+    },
+    {
+      "type": "outro",
+      "question": "ما رأيك؟ اكتب في التعليقات",
+      "cta": "احفظ • شارك • تابع"
+    }
+  ]
+}

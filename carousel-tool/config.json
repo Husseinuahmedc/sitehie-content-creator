@@ -1,0 +1,17 @@
+{
+  "width": 1080,
+  "height": 1350,
+  "scale": 3,
+  "defaultTheme": "themes/default.theme.json",
+  "templatesDir": "templates",
+  "themesDir": "themes",
+  "outputDir": "output",
+  "readabilityFloor": 28,
+  "fontFitStep": 1,
+  "previewPort": 3847,
+  "safeZones": {
+    "top": 120,
+    "bottom": 100,
+    "x": 80
+  }
+}

@@ -1,0 +1,627 @@
+{
+  "_snapshot": true,
+  "_timestamp": "2026-08-10T22:40:41.339Z",
+  "_episodeFile": "post.json",
+  "content": {
+    "episode": "post",
+    "slides": [
+      {
+        "type": "cover",
+        "title": "C++ ولا Python؟ مين يكسب المعركة؟"
+      },
+      {
+        "type": "quote",
+        "paragraphs": [
+          {
+            "text": "سؤال بيحير كل مبرمج جديد… لغة سريعة وقوية زي الأسد؟ ولا لغة سهلة وسلسة زي النسيم؟ الحقيقة إن الاختيار بيعتمد على اللي عاوز تعمله بالظبط.",
+            "highlights": [],
+            "cyanWords": [
+              "C++",
+              "Python"
+            ]
+          },
+          {
+            "text": "في السلايدات الجاية هقارنهم في 6 نقاط: السرعة، الذاكرة، سهولة التعلم، الشيفرة، المجالات، وسوق العمل — وتبقى انت تحكم بنفسك.",
+            "highlights": [],
+            "cyanWords": [
+              "السرعة",
+              "الذاكرة",
+              "سهولة التعلم",
+              "الشيفرة",
+              "المجالات",
+              "سوق العمل"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "paragraphs": [
+          {
+            "text": "Python بتترجم للـ Machine Code مباشرة، فبتنفذ الشيفرة بأقصى سرعة. ده بيخليها الخيار الأول في الألعاب وأنظمة التشغيل وتطبيقات الوقت الحقيقي.",
+            "highlights": [
+              "أقصى سرعة"
+            ],
+            "cyanWords": [
+              "C++",
+              "Machine Code",
+              "الألعاب",
+              "أنظمة التشغيل"
+            ]
+          },
+          {
+            "text": "Python لغة مفسّرة (Interpreted) بتشتغل في طبقة فوق المعالج، فسرعتها أقل بوضوح. مناسبة للتطبيقات اللي الأداء فيها مش أولوية.",
+            "highlights": [
+              "أقل",
+              "مفسّرة"
+            ],
+            "cyanWords": [
+              "Interpreted"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "code",
+        "titleEn": "Performance Comparison",
+        "subtitleEn": "cpp vs python",
+        "code": "// C++ : compiled\nint sum = 0;\nfor (int i = 0; i < 1e9; i++) sum += i;\n\n# Python : interpreted\nsum = 0\nfor i in range(10**9):\n    sum += i",
+        "explanation": "نفس الحلقة البسيطة بتمشي أسرع عشرات المرات في C++ لأن الكود بيتحول لـ Machine Code قبل التنفيذ، بينما Python بتفسّر كل سطر أثناء التشغيل. ده بيفرق جدًا في الحلقات الكبيرة والحسابات الثقيلة.",
+        "annotations": [
+          {
+            "text": "سرعة عالية",
+            "target": "for"
+          },
+          {
+            "text": "تفسير أبطأ",
+            "target": "range"
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "paragraphs": [
+          {
+            "text": "في C++ انت المتحكم الكامل في الذاكرة: بتعمل new و delete بإيدك. سيطرة قوية… بس لو نسيت تحرر الذاكرة، هتواجه Memory Leak أو مشاكل غامضة في الـ Pointers.",
+            "highlights": [
+              "Memory Leak",
+              "الـ Pointers",
+              "نسيت"
+            ],
+            "cyanWords": [
+              "new",
+              "delete",
+              "سيطرة"
+            ]
+          },
+          {
+            "text": "Python بتدير الذاكرة لوحدها عبر Garbage Collector بيتخلص تلقائيًا من اللي مابقاش مستخدم. أريح نفسيًا… لكن استهلاكها للذاكرة أعلى من C++.",
+            "highlights": [
+              "أعلى"
+            ],
+            "cyanWords": [
+              "Garbage Collector",
+              "تلقائيًا"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "paragraphs": [
+          {
+            "text": "نبدأ بالسهل: Python مكتوبة بحيث تقراها زي ما تقرا جملة إنجليزية. الـ Syntax بتاعها بسيط ومفهوم، فمبتدئ يكتب برنامج شغال في أول يوم.",
+            "highlights": [],
+            "cyanWords": [
+              "Python",
+              "Syntax"
+            ]
+          },
+          {
+            "text": "C++ معقدة: فيه Pointers و Templates و References و Memory Management. منحنى التعلم طويل وبتلاقي نفسك بتتوه في تفاصيل تقنية قبل ما تعمل أي حاجة مفيدة.",
+            "highlights": [
+              "معقدة",
+              "تتوه",
+              "Pointers",
+              "Templates"
+            ],
+            "cyanWords": [
+              "Memory Management"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "code",
+        "titleEn": "Hello World: The Gap",
+        "subtitleEn": "cpp vs python",
+        "code": "// C++\n#include <iostream>\nint main() {\n    std::cout << \"Hello\";\n    return 0;\n}\n\n# Python\nprint(\"Hello\")",
+        "explanation": "أبسط برنامج ممكن يبين الفرق: Python بتحتاج سطر واحد عشان تطبع نص، بينما C++ محتاجة 5 أسطر تشمل مكتبات ودالة رئيسية. نفس الفجوة بتكبر مع كل مشروع.",
+        "annotations": [
+          {
+            "text": "سطر واحد",
+            "target": "print"
+          },
+          {
+            "text": "تركيب كامل",
+            "target": "main"
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "paragraphs": [
+          {
+            "text": "C++ هي الملك هنا: محركات الألعاب زي Unreal Engine، أنظمة التشغيل، المتصفحات، وأنظمة السيارات والتطبيقات المدمجة — كلها مبنية على سرعتها وتحكمها الكامل في العتاد.",
+            "highlights": [],
+            "cyanWords": [
+              "Unreal Engine",
+              "أنظمة التشغيل",
+              "المتصفحات"
+            ]
+          },
+          {
+            "text": "Python بتتصدر في عالم البيانات والذكاء الاصطناعي: مكتبات زي TensorFlow و PyTorch و pandas. كمان مشاريع الأتمتة وتطوير الويب بتبقى أسرع في البناء بكتير.",
+            "highlights": [],
+            "cyanWords": [
+              "TensorFlow",
+              "PyTorch",
+              "pandas",
+              "الذكاء الاصطناعي",
+              "الأتمتة"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "paragraphs": [
+          {
+            "text": "Python هي اللغة الأكثر طلبًا للمبتدئين ولعلوم البيانات، ووظائفها في الغالب سهلة الدخول. لو هدفك تدخل عالم البرمجة سريعًا، تبدأ بيها.",
+            "highlights": [],
+            "cyanWords": [
+              "Python",
+              "المبتدئين",
+              "علوم البيانات"
+            ]
+          },
+          {
+            "text": "C++ وظائفها أقل عددًا لكن رواتبها أعلى لأنها تطلب خبرة و مهارة عميقة. المهندس الخبير فيها يبقى عملة نادرة وسوقه دايمًا محتاجه.",
+            "highlights": [
+              "خبير",
+              "نادرة"
+            ],
+            "cyanWords": [
+              "C++",
+              "رواتبها أعلى"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "paragraphs": [
+          {
+            "text": "الخلاصة: مش السؤال إيه أفضل لغة… السؤال إيه اللي يناسب مشروعك. C++ للقوة والتحكم، Python للسرعة في الإنجاز.",
+            "highlights": [],
+            "cyanWords": [
+              "C++",
+              "Python",
+              "القوة",
+              "التحكم",
+              "السرعة"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "theme": {
+    "name": "warm-cream-clay",
+    "description": "Warm cream claymorphism — soft cream surfaces, terracotta accent, olive contrast",
+    "family": "light",
+    "colors": {
+      "background": "#F5EFE6",
+      "primary": "#B08968",
+      "secondary": "#7F5539",
+      "textPrimary": "#3E2723",
+      "textSecondary": "#8D6E63",
+      "codeBackground": "#2D2419",
+      "highlightMarker": "#C1440E",
+      "codeText": "#EDE0D4",
+      "border": "#E6D5C3",
+      "progressTrack": "#E6D5C3",
+      "progressFill": "#B08968",
+      "badgeBackground": "#B08968",
+      "badgeText": "#FFFFFF",
+      "cyanWord": "#6B7B3F",
+      "annotationBg": "#DDB892",
+      "annotationText": "#3E2723",
+      "iconFrame": "#B08968",
+      "surface": "#FAF6F0",
+      "shadow": "rgba(176, 137, 104, 0.35)"
+    },
+    "fonts": {
+      "arabicPrimary": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic Bold.otf",
+        "weight": 700,
+        "format": "opentype"
+      },
+      "arabicPrimaryBlack": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic Black.otf",
+        "weight": 900,
+        "format": "opentype"
+      },
+      "arabicSecondary": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic.otf",
+        "weight": 400,
+        "format": "opentype"
+      },
+      "arabicSecondaryMedium": {
+        "family": "Qahwa Arabic",
+        "path": "shared/fonts/Qahwa Arabic Medium.otf",
+        "weight": 500,
+        "format": "opentype"
+      },
+      "codeMono": {
+        "family": "JetBrains Mono",
+        "path": "shared/fonts/JetBrainsMono-Regular.woff2",
+        "weight": 400,
+        "format": "woff2"
+      },
+      "codeMonoBold": {
+        "family": "JetBrains Mono",
+        "path": "shared/fonts/JetBrainsMono-Bold.woff2",
+        "weight": 700,
+        "format": "woff2"
+      },
+      "englishHeading": {
+        "family": "JetBrains Mono",
+        "path": "shared/fonts/JetBrainsMono-Bold.woff2",
+        "weight": 700,
+        "format": "woff2"
+      },
+      "englishHeadingBold": {
+        "family": "Space Grotesk",
+        "path": "shared/fonts/SpaceGrotesk-Bold.woff2",
+        "weight": 700,
+        "format": "woff2"
+      }
+    },
+    "typography": {
+      "quoteSlide": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSizeMax": 60,
+        "fontSizeMin": 34,
+        "lineHeight": 1.6,
+        "fontWeight": 900
+      },
+      "codeSlideTitle": {
+        "fontFamily": "englishHeading",
+        "fontSize": 26,
+        "fontWeight": 700,
+        "letterSpacing": "-0.01em"
+      },
+      "codeSlideSubtitle": {
+        "fontFamily": "englishHeading",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "letterSpacing": "0.1em",
+        "textTransform": "uppercase"
+      },
+      "codeSlideCode": {
+        "fontFamily": "codeMono",
+        "fontSize": 30,
+        "fontSizeMax": 38,
+        "fontSizeMin": 18,
+        "lineHeight": 1.5,
+        "fontWeight": 400
+      },
+      "codeSlideExplanation": {
+        "fontFamily": "arabicSecondaryMedium",
+        "fontSize": 28,
+        "fontSizeMax": 32,
+        "fontSizeMin": 20,
+        "lineHeight": 1.65,
+        "fontWeight": 500
+      },
+      "codeSlideNumber": {
+        "fontFamily": "englishHeading",
+        "fontSize": 15,
+        "fontWeight": 700
+      },
+      "codeSlideFooter": {
+        "fontFamily": "englishHeading",
+        "fontSize": 15,
+        "fontWeight": 500
+      },
+      "codeSlideAnnotation": {
+        "fontFamily": "arabicSecondary",
+        "fontSize": 17,
+        "fontWeight": 400,
+        "lineHeight": 1.4
+      },
+      "coverSlideTitle": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSize": 46,
+        "fontSizeMax": 54,
+        "fontSizeMin": 30,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "coverSlideSeries": {
+        "fontFamily": "englishHeading",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "letterSpacing": "0.14em",
+        "textTransform": "uppercase"
+      },
+      "coverSlideHint": {
+        "fontFamily": "arabicSecondary",
+        "fontSize": 17,
+        "fontWeight": 400
+      },
+      "outroSlideQuestion": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSizeMax": 48,
+        "fontSizeMin": 28,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "outroSlideHandle": {
+        "fontFamily": "englishHeading",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "letterSpacing": "0.1em"
+      },
+      "outroSlideCta": {
+        "fontFamily": "arabicSecondaryMedium",
+        "fontSize": 20,
+        "fontWeight": 700
+      },
+      "comparisonSlideTitle": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSize": 42,
+        "fontSizeMax": 50,
+        "fontSizeMin": 28,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "comparisonSlideBody": {
+        "fontFamily": "arabicSecondaryMedium",
+        "fontSize": 23,
+        "fontSizeMax": 27,
+        "fontSizeMin": 17,
+        "lineHeight": 1.65,
+        "fontWeight": 500
+      },
+      "comparisonSlideLabel": {
+        "fontFamily": "englishHeading",
+        "fontSize": 20,
+        "fontWeight": 700
+      },
+      "statSlideValue": {
+        "fontFamily": "englishHeadingBold",
+        "fontSize": 110,
+        "fontSizeMax": 170,
+        "fontSizeMin": 68,
+        "lineHeight": 1,
+        "fontWeight": 700,
+        "letterSpacing": "-0.02em"
+      },
+      "statSlideLabel": {
+        "fontFamily": "arabicPrimaryBlack",
+        "fontSize": 42,
+        "fontSizeMax": 50,
+        "fontSizeMin": 28,
+        "lineHeight": 1.4,
+        "fontWeight": 900
+      },
+      "statSlideSubtext": {
+        "fontFamily": "arabicSecondary",
+        "fontSize": 25,
+        "fontSizeMax": 29,
+        "fontSizeMin": 19,
+        "lineHeight": 1.65,
+        "fontWeight": 400
+      }
+    },
+    "layout": {
+      "quoteSlide": {
+        "textAlign": "right",
+        "direction": "rtl",
+        "textPosition": {
+          "top": "18.22%",
+          "left": "16.42%",
+          "width": "73%",
+          "height": "58%"
+        },
+        "highlightMarkerStyle": "background",
+        "highlightUnderlineThickness": 0,
+        "highlightUnderlineOffset": 0,
+        "paragraphSpacing": "8px"
+      },
+      "codeSlide": {
+        "slideNumberPosition": {
+          "top": "12.95%",
+          "left": "84.56%"
+        },
+        "titlePosition": {
+          "top": "11.8%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "subtitlePosition": {
+          "top": "15.4%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "codeBlockPosition": {
+          "top": "22%",
+          "left": "7.5%",
+          "width": "85%",
+          "height": "40%"
+        },
+        "explanationPosition": {
+          "top": "64.04%",
+          "left": "6.34%",
+          "width": "85%",
+          "height": "21%"
+        },
+        "progressBarPosition": {
+          "bottom": "11%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "footerPosition": {
+          "top": "89%",
+          "left": "7.5%",
+          "width": "85%"
+        },
+        "codeBlockBorderRadius": 28,
+        "codeBlockPadding": "32px 36px",
+        "progressBarHeight": 8,
+        "progressBarWidth": "100%",
+        "slideNumberBorderRadius": 999,
+        "slideNumberPadding": "8px 18px",
+        "explanationAlign": "right",
+        "explanationDirection": "rtl",
+        "annotationGap": 14
+      },
+      "coverSlide": {
+        "iconSize": "98.7%",
+        "iconPosition": {
+          "top": "14.77%",
+          "center": true
+        },
+        "titlePosition": {
+          "top": "68%",
+          "left": "10%",
+          "width": "80%"
+        },
+        "seriesPosition": {
+          "top": "10%",
+          "left": "10%",
+          "width": "80%"
+        },
+        "hintPosition": {
+          "bottom": "8.5%",
+          "center": true
+        },
+        "badgesPosition": {
+          "bottom": "15%",
+          "center": true,
+          "width": "84%"
+        },
+        "watermarkPosition": {
+          "bottom": "1.5%",
+          "center": true
+        },
+        "iconFrameWidth": 0,
+        "iconFrameRadius": 40,
+        "iconFramePadding": "36px",
+        "titleAlign": "center",
+        "titleDirection": "rtl",
+        "logoWidth": "100.5%",
+        "logoHeight": "100.5%",
+        "logoMaxHeight": "none"
+      },
+      "outroSlide": {
+        "imagePosition": {
+          "top": "12%",
+          "center": true,
+          "width": "26%"
+        },
+        "questionPosition": {
+          "top": "42%",
+          "center": true,
+          "width": "84%"
+        },
+        "brandPosition": {
+          "top": "86.79%",
+          "left": "0%"
+        },
+        "badgesPosition": {
+          "bottom": "21%",
+          "center": true,
+          "width": "84%"
+        },
+        "questionAlign": "center",
+        "questionDirection": "rtl"
+      },
+      "comparisonSlide": {
+        "slideNumberPosition": {
+          "top": "9.5%",
+          "left": "7.5%"
+        },
+        "titlePosition": {
+          "top": "14%",
+          "center": true,
+          "width": "85%"
+        },
+        "panelsPosition": {
+          "top": "26%",
+          "left": "7.5%",
+          "width": "85%",
+          "height": "44%"
+        },
+        "verdictPosition": {
+          "bottom": "9.5%",
+          "center": true,
+          "width": "85%"
+        },
+        "badgesPosition": {
+          "bottom": "19%",
+          "center": true,
+          "width": "84%"
+        },
+        "gap": 24,
+        "panelRadius": 28,
+        "panelPadding": "32px",
+        "titleAlign": "center",
+        "titleDirection": "rtl"
+      },
+      "statSlide": {
+        "slideNumberPosition": {
+          "top": "9.5%",
+          "left": "7.5%"
+        },
+        "valuePosition": {
+          "top": "28%",
+          "center": true,
+          "width": "90%"
+        },
+        "labelPosition": {
+          "top": "50%",
+          "center": true,
+          "width": "80%"
+        },
+        "subtextPosition": {
+          "top": "60%",
+          "center": true,
+          "width": "75%"
+        },
+        "badgesPosition": {
+          "bottom": "10%",
+          "center": true,
+          "width": "84%"
+        },
+        "align": "center",
+        "direction": "rtl"
+      }
+    },
+    "effects": {
+      "codeBlockShadow": "12px 12px 0 rgba(176, 137, 104, 0.25), -6px -6px 16px rgba(255,255,255,0.75)",
+      "iconShadow": "16px 16px 0 rgba(176, 137, 104, 0.2), -8px -8px 24px rgba(255,255,255,0.85)",
+      "surfaceRadius": 28,
+      "clayDepth": "inset 4px 4px 8px rgba(255,255,255,0.65), inset -4px -4px 8px rgba(62,39,35,0.08)"
+    },
+    "brand": {
+      "handle": "@sitehie",
+      "readingTimeSuffix": "min read"
+    }
+  }
+}

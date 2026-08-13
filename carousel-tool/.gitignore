@@ -1,0 +1,7 @@
+node_modules/
+output/
+.playwright/
+*.log
+.DS_Store
+content/_*-test.json
+debug-once.mjs

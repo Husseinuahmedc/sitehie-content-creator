@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stat Slide</title>
+  <link rel="stylesheet" href="shared/base.css" />
+  <style id="theme-fonts"></style>
+  <style id="theme-vars"></style>
+  <style>
+    .slide-number {
+      font-family: var(--type-code-number-font-family);
+      font-size: var(--type-code-number-font-size);
+      font-weight: var(--type-code-number-font-weight);
+      background: var(--color-badge-background);
+      color: var(--color-badge-text);
+      border-radius: var(--layout-code-number-radius);
+      padding: var(--layout-code-number-padding);
+      line-height: 1;
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    .stat-value {
+      font-family: var(--type-stat-value-font-family);
+      font-size: var(--type-stat-value-font-size);
+      font-weight: var(--type-stat-value-font-weight);
+      line-height: var(--type-stat-value-line-height, 1);
+      letter-spacing: var(--type-stat-value-letter-spacing, -0.02em);
+      color: var(--color-primary);
+      text-align: var(--layout-stat-align);
+      direction: ltr;
+      unicode-bidi: isolate;
+      width: 100%;
+      text-shadow: 0 0 60px color-mix(in srgb, var(--color-primary) 35%, transparent);
+    }
+
+    .stat-label {
+      font-family: var(--type-stat-label-font-family);
+      font-size: var(--type-stat-label-font-size);
+      font-weight: var(--type-stat-label-font-weight);
+      line-height: var(--type-stat-label-line-height, 1.4);
+      color: var(--color-text-primary);
+      text-align: var(--layout-stat-align);
+      direction: var(--layout-stat-direction);
+      width: 100%;
+    }
+
+    .stat-subtext {
+      font-family: var(--type-stat-subtext-font-family);
+      font-size: var(--type-stat-subtext-font-size);
+      font-weight: var(--type-stat-subtext-font-weight);
+      line-height: var(--type-stat-subtext-line-height, 1.6);
+      color: var(--color-text-secondary);
+      text-align: var(--layout-stat-align);
+      direction: var(--layout-stat-direction);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide" id="slide">
+    <div class="pos slide-number" id="slide-number" dir="ltr" data-pos="statSlide.slideNumberPosition"></div>
+
+    <div
+      class="pos fit-text stat-value"
+      id="stat-value"
+      data-fit="statSlideValue"
+      data-pos="statSlide.valuePosition"
+    ></div>
+
+    <div
+      class="pos fit-text stat-label"
+      id="stat-label"
+      data-fit="statSlideLabel"
+      data-pos="statSlide.labelPosition"
+    ></div>
+
+    <div
+      class="pos fit-text stat-subtext"
+      id="stat-subtext"
+      data-fit="statSlideSubtext"
+      data-pos="statSlide.subtextPosition"
+    ></div>
+
+    <div
+      class="pos tech-badges hidden"
+      id="stat-tech-badges"
+      data-tech-icons
+      data-pos="statSlide.badgesPosition"
+    ></div>
+
+    <div id="slide-images" class="hidden"></div>
+    <div class="safe-guide" aria-hidden="true">
+      <div class="safe-guide-band top"></div>
+      <div class="safe-guide-band bottom"></div>
+      <div class="safe-guide-side left"></div>
+      <div class="safe-guide-side right"></div>
+    </div>
+  </div>
+  <script type="application/json" id="slide-data"></script>
+  <script id="tech-icons-data"></script>
+  <script src="shared/slide-runtime.js"></script>
+</body>
+</html>

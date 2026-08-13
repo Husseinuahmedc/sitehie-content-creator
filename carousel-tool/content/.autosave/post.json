@@ -1,0 +1,310 @@
+{
+  "episode": "post",
+  "slides": [
+    {
+      "type": "cover",
+      "title": "JWT ببساطة"
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "سؤال بيحير كل مبرمج جديد… لغة سريعة وقوية زي الأسد؟ ولا لغة سهلة وسلسة زي النسيم؟ الحقيقة إن الاختيار بيعتمد على اللي عاوز تعمله بالظبط.",
+          "highlights": [],
+          "cyanWords": [
+            "C++",
+            "Python"
+          ]
+        },
+        {
+          "text": "في السلايدات الجاية هقارنهم في 6 نقاط: السرعة، الذاكرة، سهولة التعلم، الشيفرة، المجالات، وسوق العمل — وتبقى انت تحكم بنفسك.",
+          "highlights": [],
+          "cyanWords": [
+            "السرعة",
+            "الذاكرة",
+            "سهولة التعلم",
+            "الشيفرة",
+            "المجالات",
+            "سوق العمل"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "Python بتترجم للـ Machine Code مباشرة، فبتنفذ الشيفرة بأقصى سرعة. ده بيخليها الخيار الأول في الألعاب وأنظمة التشغيل وتطبيقات الوقت الحقيقي.",
+          "highlights": [
+            "أقصى سرعة"
+          ],
+          "cyanWords": [
+            "C++",
+            "Machine Code",
+            "الألعاب",
+            "أنظمة التشغيل"
+          ]
+        },
+        {
+          "text": "Python لغة مفسّرة (Interpreted) بتشتغل في طبقة فوق المعالج، فسرعتها أقل بوضوح. مناسبة للتطبيقات اللي الأداء فيها مش أولوية.",
+          "highlights": [
+            "أقل",
+            "مفسّرة"
+          ],
+          "cyanWords": [
+            "Interpreted"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "titleEn": "Performance Comparison",
+      "subtitleEn": "cpp vs python",
+      "code": "// C++ : compiled\nint sum = 0;\nfor (int i = 0; i < 1e9; i++) sum += i;\n\n# Python : interpreted\nsum = 0\nfor i in range(10**9):\n    sum += i",
+      "explanation": "نفس الحلقة البسيطة بتمشي أسرع عشرات المرات في C++ لأن الكود بيتحول لـ Machine Code قبل التنفيذ، بينما Python بتفسّر كل سطر أثناء التشغيل. ده بيفرق جدًا في الحلقات الكبيرة والحسابات الثقيلة.",
+      "annotations": [
+        {
+          "text": "سرعة عالية",
+          "target": "for"
+        },
+        {
+          "text": "تفسير أبطأ",
+          "target": "range"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "في C++ انت المتحكم الكامل في الذاكرة: بتعمل new و delete بإيدك. سيطرة قوية… بس لو نسيت تحرر الذاكرة، هتواجه Memory Leak أو مشاكل غامضة في الـ Pointers.",
+          "highlights": [
+            "Memory Leak",
+            "الـ Pointers",
+            "نسيت"
+          ],
+          "cyanWords": [
+            "new",
+            "delete",
+            "سيطرة"
+          ]
+        },
+        {
+          "text": "Python بتدير الذاكرة لوحدها عبر Garbage Collector بيتخلص تلقائيًا من اللي مابقاش مستخدم. أريح نفسيًا… لكن استهلاكها للذاكرة أعلى من C++.",
+          "highlights": [
+            "أعلى"
+          ],
+          "cyanWords": [
+            "Garbage Collector",
+            "تلقائيًا"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "نبدأ بالسهل: Python مكتوبة بحيث تقراها زي ما تقرا جملة إنجليزية. الـ Syntax بتاعها بسيط ومفهوم، فمبتدئ يكتب برنامج شغال في أول يوم.",
+          "highlights": [],
+          "cyanWords": [
+            "Python",
+            "Syntax"
+          ]
+        },
+        {
+          "text": "C++ معقدة: فيه Pointers و Templates و References و Memory Management. منحنى التعلم طويل وبتلاقي نفسك بتتوه في تفاصيل تقنية قبل ما تعمل أي حاجة مفيدة.",
+          "highlights": [
+            "معقدة",
+            "تتوه",
+            "Pointers",
+            "Templates"
+          ],
+          "cyanWords": [
+            "Memory Management"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "titleEn": "Hello World: The Gap",
+      "subtitleEn": "cpp vs python",
+      "code": "// C++\n#include <iostream>\nint main() {\n    std::cout << \"Hello\";\n    return 0;\n}\n\n# Python\nprint(\"Hello\")",
+      "explanation": "أبسط برنامج ممكن يبين الفرق: Python بتحتاج سطر واحد عشان تطبع نص، بينما C++ محتاجة 5 أسطر تشمل مكتبات ودالة رئيسية. نفس الفجوة بتكبر مع كل مشروع.",
+      "annotations": [
+        {
+          "text": "سطر واحد",
+          "target": "print"
+        },
+        {
+          "text": "تركيب كامل",
+          "target": "main"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "C++ هي الملك هنا: محركات الألعاب زي Unreal Engine، أنظمة التشغيل، المتصفحات، وأنظمة السيارات والتطبيقات المدمجة — كلها مبنية على سرعتها وتحكمها الكامل في العتاد.",
+          "highlights": [],
+          "cyanWords": [
+            "Unreal Engine",
+            "أنظمة التشغيل",
+            "المتصفحات"
+          ]
+        },
+        {
+          "text": "Python بتتصدر في عالم البيانات والذكاء الاصطناعي: مكتبات زي TensorFlow و PyTorch و pandas. كمان مشاريع الأتمتة وتطوير الويب بتبقى أسرع في البناء بكتير.",
+          "highlights": [],
+          "cyanWords": [
+            "TensorFlow",
+            "PyTorch",
+            "pandas",
+            "الذكاء الاصطناعي",
+            "الأتمتة"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "Python هي اللغة الأكثر طلبًا للمبتدئين ولعلوم البيانات، ووظائفها في الغالب سهلة الدخول. لو هدفك تدخل عالم البرمجة سريعًا، تبدأ بيها.",
+          "highlights": [],
+          "cyanWords": [
+            "Python",
+            "المبتدئين",
+            "علوم البيانات"
+          ]
+        },
+        {
+          "text": "C++ وظائفها أقل عددًا لكن رواتبها أعلى لأنها تطلب خبرة و مهارة عميقة. المهندس الخبير فيها يبقى عملة نادرة وسوقه دايمًا محتاجه.",
+          "highlights": [
+            "خبير",
+            "نادرة"
+          ],
+          "cyanWords": [
+            "C++",
+            "رواتبها أعلى"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        {
+          "text": "الخلاصة: مش السؤال إيه أفضل لغة… السؤال إيه اللي يناسب مشروعك. C++ للقوة والتحكم، Python للسرعة في الإنجاز.",
+          "highlights": [],
+          "cyanWords": [
+            "C++",
+            "Python",
+            "القوة",
+            "التحكم",
+            "السرعة"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "canvas",
+      "frame": {
+        "width": 1080,
+        "height": 1350,
+        "background": "#0D1117",
+        "backgroundType": "solid",
+        "borderRadius": 0
+      },
+      "objects": [
+        {
+          "id": "el_msqbc6iq_fbf9",
+          "type": "text",
+          "x": 427.82608695652283,
+          "y": 94.54792719301979,
+          "w": 599.3478260869562,
+          "h": 214.52173913043444,
+          "rotation": 0,
+          "text": "حسين",
+          "fontSize": 178,
+          "fontFamily": "",
+          "fontWeight": "bold",
+          "align": "center",
+          "fill": "#835d5d",
+          "lineHeight": 1.2,
+          "name": "حسين"
+        },
+        {
+          "id": "el_msqbed2l_14j3",
+          "type": "path",
+          "points": [
+            {
+              "x": 72.37092391304347,
+              "y": 502.776867410411,
+              "handleIn": null,
+              "handleOut": null,
+              "corner": true
+            },
+            {
+              "x": 264.76222826086956,
+              "y": 672.3420848017153,
+              "handleIn": {
+                "x": 208.69565217391306,
+                "y": -81.52173913043487
+              },
+              "handleOut": {
+                "x": -208.69565217391306,
+                "y": 81.52173913043487
+              },
+              "corner": false
+            },
+            {
+              "x": 646.2839673913044,
+              "y": 985.385563062585,
+              "handleIn": {
+                "x": 110.86956521739133,
+                "y": 397.82608695652175
+              },
+              "handleOut": {
+                "x": -108.09782608695662,
+                "y": -387.88043478260863
+              },
+              "corner": false
+            },
+            {
+              "x": 376.5473845108696,
+              "y": 333.71086876910664,
+              "handleIn": {
+                "x": 304.0613111413044,
+                "y": 104.25621603260873
+              },
+              "handleOut": {
+                "x": -304.0613111413044,
+                "y": -104.25621603260873
+              },
+              "corner": false
+            },
+            {
+              "x": 39.76222826086955,
+              "y": 320.168171758237,
+              "handleIn": {
+                "x": 0,
+                "y": 0
+              },
+              "handleOut": null,
+              "corner": true
+            }
+          ],
+          "closed": false,
+          "fill": "none",
+          "stroke": "#FFFFFF",
+          "strokeWidth": 6,
+          "name": "Path 1"
+        }
+      ]
+    }
+  ]
+}

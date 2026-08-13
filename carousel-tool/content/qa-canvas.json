@@ -1,0 +1,68 @@
+{
+  "episode": "canvas-fixture",
+  "series": "qa",
+  "slides": [
+    {
+      "type": "canvas",
+      "frame": {
+        "width": 1080,
+        "height": 1350,
+        "background": "#0D1117",
+        "backgroundType": "linear",
+        "backgroundTo": "#1B2A6B",
+        "backgroundAngle": 135,
+        "borderRadius": 24
+      },
+      "objects": [
+        {
+          "id": "fx_rect",
+          "type": "rect",
+          "x": 120, "y": 140, "w": 320, "h": 220,
+          "rotation": 15,
+          "fill": "#3D52D5", "stroke": "#FFFFFF", "strokeWidth": 6,
+          "borderRadius": 16
+        },
+        {
+          "id": "fx_circle",
+          "type": "circle",
+          "x": 600, "y": 180, "w": 260, "h": 180,
+          "rotation": -20,
+          "fill": "#D53D8C", "stroke": "", "strokeWidth": 0
+        },
+        {
+          "id": "fx_polygon",
+          "type": "polygon",
+          "x": 200, "y": 560, "w": 300, "h": 260,
+          "rotation": 30,
+          "fill": "#2FA86B", "stroke": "#0D1117", "strokeWidth": 4,
+          "sides": 5
+        },
+        {
+          "id": "fx_path_open",
+          "type": "path",
+          "points": [
+            { "x": 120, "y": 1000, "handleIn": null, "handleOut": { "x": 120, "y": -180 }, "corner": false },
+            { "x": 520, "y": 1060, "handleIn": { "x": -140, "y": -120 }, "handleOut": null, "corner": true }
+          ],
+          "closed": false,
+          "fill": "none",
+          "stroke": "#E8B93B",
+          "strokeWidth": 8
+        },
+        {
+          "id": "fx_path_closed",
+          "type": "path",
+          "points": [
+            { "x": 700, "y": 700, "handleIn": null, "handleOut": { "x": 90, "y": 0 }, "corner": false },
+            { "x": 900, "y": 800, "handleIn": { "x": 0, "y": -90 }, "handleOut": { "x": 0, "y": 90 }, "corner": false },
+            { "x": 700, "y": 900, "handleIn": { "x": 90, "y": 0 }, "handleOut": null, "corner": false }
+          ],
+          "closed": true,
+          "fill": "rgba(61,82,213,0.35)",
+          "stroke": "#3D52D5",
+          "strokeWidth": 5
+        }
+      ]
+    }
+  ]
+}
